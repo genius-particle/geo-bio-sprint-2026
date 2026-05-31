@@ -66,32 +66,6 @@ npm run dev
 - 数据存储在 `data/` 目录（JSON + 图片 + Markdown）
 - 启动 Claude Code 时自动提示待分析题目数量
 
-## 数据目录
-
-```
-data/
-├── questions/{时间戳}/     # 题目（image.jpg + meta.json）
-├── mistakes/{id}.json      # 错题记录（含间隔复习状态）
-├── wiki/                   # 知识库（Markdown + YAML frontmatter）
-│   ├── index.md            # 自动维护的知识点目录
-│   ├── log.md              # 操作日志
-│   └── *.md                # 知识点页面
-├── practice/{时间戳}.json  # 练习题会话
-├── chapters.json           # 预置章节+知识点结构
-└── reports/                # 学习报告
-```
-
-## 知识库 Wiki
-
-基于 [oh-my-claudecode](https://github.com/Yeachan-Heo/oh-my-claudecode) 的 LLM Wiki 模式实现：
-
-- **追加策略** — 新内容追加到已有页面，永不覆盖
-- **CJK 搜索** — 中文字符级 + 二元组分词
-- **Wiki 链接** — `[[知识点名]]` 语法关联相关知识点
-- **自动索引** — `index.md` 按学科分组自动维护
-- **间隔复习** — 简化 SM-2 算法（1天→3天→7天→14天→30天）
-- **健康检查** — 检测孤立页面、过期内容、断裂链接等
-
 ## 预置章节
 
 | 学科 | 册 | 章节 |
@@ -103,11 +77,9 @@ data/
 
 ## 技术栈
 
-- **前端**: React 19 + TypeScript + Vite 6 + Tailwind CSS（CDN）
-- **后端**: Vite configureServer 中间件（单服务器）
-- **存储**: 本地文件系统（JSON + 图片 + Markdown）
-- **AI**: Claude Code 技能（终端执行）
-- **无外部云服务、无数据库、无认证**
+React 19 + TypeScript + Vite 6 + Tailwind CSS | Vite 中间件 API | 本地文件存储 | Claude Code 技能
+
+**无外部云服务、无数据库、无认证**
 
 ## 常见问题
 

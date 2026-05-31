@@ -1,59 +1,49 @@
-# 地生会考冲刺 (geo-bio-sprint-2026)
+# 地生冲刺 — Claude Code 行为规则
 
-## 项目概述
-八年级地理/生物会考错题录入和学习工具。
-- Web 端：手机/平板通过局域网访问，拍照录入错题
-- AI 端：通过 Claude Code 技能分析题目、搜索课程、生成练习
+## 构建 & 运行
 
-## 技术栈
-- React 19 + TypeScript + Vite 6
-- 后端：Vite configureServer 中间件（单服务器，/api/* 路由）
-- 存储：本地文件系统（JSON + 图片），无数据库
-- 样式：Tailwind CSS（CDN）
-- 无外部云服务、无认证
+```bash
+npm run dev          # 启动 Vite 开发服务器（前端 + API 中间件，port 3000，host 0.0.0.0）
+npm run build        # 生产构建
+npx tsc --noEmit     # 类型检查（必须零错误）
+```
 
-## 数据目录
-- `data/questions/{id}/` — 题目（image.jpg + meta.json）
-- `data/mistakes/{id}.json` — 错题记录
-- `data/wiki/` — 知识库（Markdown + YAML frontmatter）
-- `data/practice/{session}.json` — 练习题会话
+- 单服务器架构：Vite `configureServer` 中间件处理 `/api/*`，不需要独立后端
+- 架构详情见 `docs/CODEMAPS/`
 
-## 项目结构
-- `src/` — 前端 React 组件
-- `server/` — API 路由（Vite 中间件）
-- `server/utils/fileStore.ts` — JSON/图片文件读写
-- `.claude/skills/` — Claude Code 技能
+## 编码约定
 
-## 可用技能
-- `/analyze` — 分析待处理题目（OCR + 解题 + 知识点提取）
-- `/search-courses` — 搜索 B站/小红书课程视频
-- `/generate-practice` — 根据错题生成练习题
-- `/review` — 间隔复习到期错题
-- `/import-knowledge` — 批量导入知识点
-- `/stats` — 学习统计报告
+- React 19 函数组件 + TypeScript，无 class 组件
+- 状态管理只用 `useState`，不用 Redux/Context
+- 样式用 Tailwind CSS（CDN），不写 CSS 文件
+- 移动端优先，不做 PC 端适配
+- 中文注释，中文 UI 文案
+- 后端路由风格参考 `server/routes/questions.ts`：同步 fs、`sendJson`/`parseBody`
+- Wiki 模块风格参考 `server/utils/wiki/storage.ts`：原子写入、文件锁、frontmatter
+- 不引入新 npm 依赖（当前零运行时外部依赖，保持这个状态）
 
-## 数据格式
+## 数据操作规则
 
-### meta.json（题目元数据）
-- `id`: 时间戳格式 "2026-05-31_14-30-22"
-- `subject`: "geography" | "biology"
-- `chapter`: 章节名
-- `analysis_status`: "pending" | "analyzed" | "failed"
-- `ocr_text`: OCR 识别文字（由 /analyze 填充）
-- `analysis`: { answer, explanation, key_concept, common_mistakes, related_topics }
+- 所有数据在 `data/` 目录，JSON + 图片 + Markdown，无数据库
+- 工具函数：`server/utils/fileStore.ts`
+- Wiki 操作：`server/utils/wiki/` 模块，**必须走 withWikiLock** 加锁
+- 数据格式、ID 约定、JSON 结构详见 `docs/CODEMAPS/data.md`
 
-### mistake JSON（错题记录）
-- 间隔复习算法：review_count 0→1天, 1→3天, 2→7天, 3→14天, 4+→30天
+## 技能（修改数据的标准操作）
 
-### 知识库 Wiki
-- Markdown 文件 + YAML frontmatter（title, tags, subject, chapter, confidence, links）
-- 追加策略：新内容追加到已有页面，不覆盖
-- Wiki 链接：[[知识点名]] 语法
+| 技能 | 改什么 | 写哪里 |
+|------|--------|--------|
+| `/analyze` | OCR + 解析 | `data/questions/*/meta.json` + `data/wiki/*.md` |
+| `/search-courses` | 搜索视频链接 | `data/wiki/*.md`（追加到相关课程段） |
+| `/generate-practice` | 生成练习题 | `data/practice/*.json` |
+| `/review` | 更新复习状态 | `data/mistakes/*.json` |
+| `/import-knowledge` | 创建知识骨架 | `data/wiki/*.md` |
+| `/stats` | 生成统计报告 | `data/reports/*.md` |
 
-## 规则
-- 所有数据操作通过读写文件完成，无数据库
-- 知识库 Wiki 使用追加策略，不覆盖已有内容
+## 内容规则
+
 - 解析面向八年级学生，语言通俗易懂
 - 地理注重读图/空间思维，生物注重概念/实验思维
+- Wiki 链接用 `[[知识点名]]` 语法
 - 所有 AI 能力走 Claude Code 技能，Web 端零 AI
-- 手机端体验优先，不做 PC 端适配
+- 技能产出优先写回文件系统，不输出到终端让用户手动复制
