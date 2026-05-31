@@ -1,0 +1,48 @@
+{
+  "enabledPlugins": {
+    "ecc@ecc": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"const fs=require('fs'),p='data/questions';if(!fs.existsSync(p)){process.exit(0)}const dirs=fs.readdirSync(p);let pending=0;dirs.forEach(d=>{try{const m=JSON.parse(fs.readFileSync(p+'/'+d+'/meta.json','utf8'));if(m.analysis_status==='pending')pending++}catch(e){}});if(pending>0)console.log('📊 有 '+pending+' 道待分析题目，运行 /analyze 处理')\"",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "node scripts/wiki-session-start.mjs",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/wiki-session-end.mjs",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/wiki-pre-compact.mjs",
+            "timeout": 3
+          }
+        ]
+      }
+    ]
+  }
+}
