@@ -5,7 +5,7 @@ node_modules/
 dist/
 
 # Data — 图片和运行时生成目录
-data/questions/*/image.jpg
+data/questions/*/image*.jpg
 data/practice/
 data/reports/
 

@@ -2,8 +2,12 @@ import { useState } from 'react';
 import { createQuestion } from '../services/api';
 import { CHAPTERS } from '../data/chapters';
 
-export default function QuestionCaptureView({ imageBase64, onSave, onCancel }: {
-  imageBase64: string; onSave: () => void; onCancel: () => void;
+export default function QuestionCaptureView({ imageBase64List, onAddImage, onRemoveImage, onSave, onCancel }: {
+  imageBase64List: string[];
+  onAddImage: () => void;
+  onRemoveImage: (index: number) => void;
+  onSave: () => void;
+  onCancel: () => void;
 }) {
   const [subject, setSubject] = useState<'geography' | 'biology'>('geography');
   const [chapter, setChapter] = useState('');
@@ -12,15 +16,27 @@ export default function QuestionCaptureView({ imageBase64, onSave, onCancel }: {
   const [isMistake, setIsMistake] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [error, setError] = useState('');
 
   const chapters = CHAPTERS[subject];
   const allChapters = Object.values(chapters).flat();
 
   const handleSave = async () => {
     setSaving(true);
-    await createQuestion({ subject, chapter, source, is_mistake: isMistake, notes, image_base64: imageBase64 });
-    setSaving(false);
-    setSaved(true);
+    setError('');
+    try {
+      const result = await createQuestion({ subject, chapter, source, is_mistake: isMistake, notes, image_base64_list: imageBase64List });
+      if (result.error) {
+        setSaving(false);
+        setError(result.error);
+        return;
+      }
+      setSaving(false);
+      setSaved(true);
+    } catch {
+      setSaving(false);
+      setError('保存失败，请检查网络后重试');
+    }
   };
 
   if (saved) {
@@ -44,10 +60,29 @@ export default function QuestionCaptureView({ imageBase64, onSave, onCancel }: {
         <div className="w-12"></div>
       </div>
 
-      {/* Image Preview */}
-      <div className="bg-white rounded-xl p-2 mb-4 shadow-sm">
-        <img src={imageBase64} alt="题目" className="w-full rounded-lg max-h-48 object-contain" />
+      {/* 多图预览 */}
+      <div className="bg-white rounded-xl p-2 mb-3 shadow-sm">
+        <div className="flex gap-2 overflow-x-auto pb-1">
+          {imageBase64List.map((img, i) => (
+            <div key={i} className="relative flex-shrink-0 w-32 h-32">
+              <img src={img} alt={`题目 ${i + 1}`} className="w-full h-full object-cover rounded-lg" />
+              <button onClick={() => onRemoveImage(i)}
+                className="absolute -top-1.5 -right-1.5 w-6 h-6 bg-red-500 text-white rounded-full text-xs flex items-center justify-center leading-none shadow">
+                ✕
+              </button>
+              <div className="absolute bottom-1 left-1 bg-black/50 text-white text-xs px-1.5 py-0.5 rounded">
+                {i + 1}/{imageBase64List.length}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
+
+      {/* 再拍一张按钮 */}
+      <button onClick={onAddImage}
+        className="w-full mb-4 py-3 rounded-xl border-2 border-dashed border-green-400 text-green-600 font-medium active:bg-green-50 transition-colors">
+        📷 再拍一张（题目跨页时使用）
+      </button>
 
       {/* Subject */}
       <div className="mb-4">
@@ -99,6 +134,10 @@ export default function QuestionCaptureView({ imageBase64, onSave, onCancel }: {
         className="w-full bg-green-500 text-white rounded-2xl py-4 text-lg font-bold disabled:bg-gray-300 active:scale-95 transition-transform">
         {saving ? '保存中...' : '💾 保存'}
       </button>
+
+      {error && (
+        <div className="mt-3 text-center text-red-500 text-sm">{error}</div>
+      )}
     </div>
   );
 }

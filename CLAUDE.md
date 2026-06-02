@@ -40,6 +40,30 @@ npx tsc --noEmit     # 类型检查（必须零错误）
 | `/import-knowledge` | 创建知识骨架 | `data/wiki/*.md` |
 | `/stats` | 生成统计报告 | `data/reports/*.md` |
 
+## 开发工作流（ECC 最佳实践）
+
+代码修改必须严格按以下顺序执行，不得跳过任何步骤：
+
+1. **修改代码** — 完成文件变更
+2. **类型检查** — `npx tsc --noEmit` 零错误
+3. **Code Review** — 使用 `/code-review` 或 `/ecc:code-review` 审查变更
+4. **用户确认** — 等 review 结果出来后，**必须等用户确认**才能提交
+5. **提交** — 用户明确说"提交"/"commit"后才执行 `git commit`
+6. **推送 & PR** — 用户明确说"推送"/"开 PR"后才执行 `git push` / `gh pr create`
+
+### 绝对禁止
+
+- ❌ 未经 code review 就 commit
+- ❌ 未经用户确认就 commit 或 push
+- ❌ 修改代码后自动连续执行 commit → push → PR
+
+### 何时可以省略 review
+
+仅在以下情况可以跳过 code review 步骤（但仍需用户确认才能提交）：
+- 纯文档/数据变更（`data/` 下的 JSON/MD）
+- 技能产出的数据写入（`/analyze`、`/review` 等）
+- 用户明确说"不用 review，直接提交"
+
 ## 内容规则
 
 - 解析面向八年级学生，语言通俗易懂

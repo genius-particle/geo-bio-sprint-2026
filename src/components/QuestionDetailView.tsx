@@ -7,10 +7,25 @@ export default function QuestionDetailView({ questionId, onBack }: {
   questionId: string; onBack: () => void;
 }) {
   const [q, setQ] = useState<Question | null>(null);
+  // fullscreen overlay for image zoom
+  const [zoomIdx, setZoomIdx] = useState<number | null>(null);
 
   useEffect(() => { fetchQuestion(questionId).then(setQ); }, [questionId]);
 
+  // 全屏查看时禁止背景滚动
+  useEffect(() => {
+    if (zoomIdx !== null) {
+      document.body.style.overflow = 'hidden';
+      return () => { document.body.style.overflow = ''; };
+    }
+  }, [zoomIdx]);
+
   if (!q) return <div className="flex items-center justify-center h-full text-gray-400">加载中...</div>;
+
+  // 确定图片数量：新数据用 image_count，旧数据（无此字段）假设 1 张旧格式图
+  const imageCount = q.image_count;
+  const isOldFormat = !('image_count' in q);
+  const totalImages = imageCount != null ? imageCount : (isOldFormat ? 1 : 0);
 
   return (
     <div className="p-4 max-w-lg mx-auto">
@@ -29,12 +44,26 @@ export default function QuestionDetailView({ questionId, onBack }: {
           {SUBJECT_LABELS[q.subject]}
         </span>
         {q.is_mistake && <span className="px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">错题</span>}
+        {totalImages > 1 && <span className="px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-700">{totalImages} 张图</span>}
       </div>
 
-      {/* Image */}
-      <div className="bg-white rounded-xl p-2 mb-4 shadow-sm">
-        <img src={`/api/questions/${q.id}/image`} alt="题目" className="w-full rounded-lg" />
-      </div>
+      {/* Images */}
+      {totalImages > 0 && (
+        <div className="bg-white rounded-xl p-2 mb-4 shadow-sm">
+          <div className="flex gap-2 overflow-x-auto pb-1">
+            {Array.from({ length: totalImages }, (_, i) => i + 1).map(idx => (
+              <img key={idx}
+                src={imageCount != null && imageCount > 0
+                  ? `/api/questions/${q.id}/image/${idx}`
+                  : `/api/questions/${q.id}/image`}
+                alt={`题目图 ${idx}`}
+                className="w-full rounded-lg flex-shrink-0 cursor-pointer max-h-64 object-contain"
+                onClick={() => setZoomIdx(idx)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Meta */}
       <div className="bg-white rounded-xl p-4 mb-4 shadow-sm space-y-2">
@@ -71,6 +100,40 @@ export default function QuestionDetailView({ questionId, onBack }: {
         <div className="bg-yellow-50 rounded-xl p-4 shadow-sm">
           <h3 className="text-sm font-semibold text-yellow-600 mb-1">📝 备注</h3>
           <p className="text-yellow-800 text-sm">{q.notes}</p>
+        </div>
+      )}
+
+      {/* 全屏查看大图 */}
+      {zoomIdx !== null && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center"
+          onClick={() => setZoomIdx(null)}>
+          <div className="relative w-full h-full flex items-center justify-center p-4">
+            <img
+              src={imageCount > 0
+                ? `/api/questions/${q.id}/image/${zoomIdx}`
+                : `/api/questions/${q.id}/image`}
+              alt={`题目图 ${zoomIdx}`}
+              className="max-w-full max-h-full object-contain"
+            />
+            {/* 多图左右切换 */}
+            {totalImages > 1 && (
+              <>
+                {zoomIdx > 1 && (
+                  <button className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 text-white w-10 h-10 rounded-full text-xl"
+                    onClick={e => { e.stopPropagation(); setZoomIdx(zoomIdx - 1); }}>‹</button>
+                )}
+                {zoomIdx < totalImages && (
+                  <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 text-white w-10 h-10 rounded-full text-xl"
+                    onClick={e => { e.stopPropagation(); setZoomIdx(zoomIdx + 1); }}>›</button>
+                )}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-sm">
+                  {zoomIdx} / {totalImages}
+                </div>
+              </>
+            )}
+            <button className="absolute top-4 right-4 text-white/70 text-2xl"
+              onClick={() => setZoomIdx(null)}>✕</button>
+          </div>
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 # Frontend — 地生冲刺
 
-> 更新: 2026-05-31 | 框架: React 19 SPA
+> 更新: 2026-06-01 | 框架: React 19 SPA
 
 ## 组件树
 
@@ -40,7 +40,7 @@ App.tsx (入口)
 App.tsx 状态:
   view: ViewMode              # 当前页面
   croppingImage: string|null  # 待裁剪图片 base64
-  croppedImage: string|null   # 裁剪后图片 base64
+  croppedImages: string[]     # 裁剪后图片 base64 数组（支持多图）
   selectedQuestionId: string|null  # 查看的题目 ID
   refreshKey: number          # 列表刷新触发器
   fileInputRef: RefObject     # 隐藏文件输入
@@ -56,7 +56,7 @@ App.tsx 状态:
 api.ts 导出:
   fetchQuestions()          GET  /api/questions
   fetchQuestion(id)         GET  /api/questions/:id
-  createQuestion(data)      POST /api/questions        (含 image_base64)
+  createQuestion(data)      POST /api/questions        (含 image_base64_list)
   updateQuestion(id, data)  PUT  /api/questions/:id
   deleteQuestion(id)        DELETE /api/questions/:id
   fetchMistakes()           GET  /api/mistakes
@@ -70,7 +70,7 @@ api.ts 导出:
   createPractice(questions)  POST /api/practice
 ```
 
-## 图片处理流程
+## 图片处理流程（多图支持）
 
 ```
 手机拍照 → input[capture=environment]
@@ -78,9 +78,13 @@ api.ts 导出:
   → fixExifRotation (解析 EXIF Orientation 1/3/6/8)
     → Image + Canvas 旋转修正
   → setCroppingImage → ImageCropper 弹层
-  → 裁剪确认 → setCroppedImage → QuestionCaptureView
-  → 保存时 base64 编码 POST 到 /api/questions
+  → 裁剪确认 → 追加到 croppedImages[] → QuestionCaptureView
+  → "再拍一张" → 重复上述流程（可多次）
+  → 保存时 image_base64_list[] POST 到 /api/questions
+  → 后端存储为 image-1.jpg, image-2.jpg, ...
 ```
+
+旧数据兼容: 仅存在 image.jpg 的题目通过 GET /:id/image 回退读取。
 
 ## 样式
 

@@ -13,7 +13,7 @@ export async function fetchQuestion(id: string) {
 
 export async function createQuestion(data: {
   subject: string; chapter: string; source?: string; source_detail?: string;
-  notes?: string; is_mistake?: boolean; image_base64?: string;
+  notes?: string; is_mistake?: boolean; image_base64?: string; image_base64_list?: string[];
 }) {
   const res = await fetch(`${BASE}/questions`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data),
