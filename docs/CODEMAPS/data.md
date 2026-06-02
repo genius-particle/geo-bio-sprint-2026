@@ -45,7 +45,10 @@ data/
     "key_concept": "",
     "common_mistakes": [],
     "related_topics": []
-  }
+  },
+  "confidence": "high",               // high | medium | low (/analyze 二次校验)
+  "needs_manual_review": false,       // confidence 为 low 时 true
+  "verification_notes": ""            // 校验备注：分歧点、修正内容
 }
 ```
 

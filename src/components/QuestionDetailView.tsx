@@ -45,6 +45,8 @@ export default function QuestionDetailView({ questionId, onBack }: {
         </span>
         {q.is_mistake && <span className="px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">错题</span>}
         {totalImages > 1 && <span className="px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-700">{totalImages} 张图</span>}
+        {q.confidence === 'low' && <span className="px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700">低置信度</span>}
+        {q.confidence === 'medium' && <span className="px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700">需关注</span>}
       </div>
 
       {/* Images */}
@@ -92,6 +94,18 @@ export default function QuestionDetailView({ questionId, onBack }: {
               <div><strong>常见错误：</strong><ul className="list-disc ml-4 mt-1">{q.analysis.common_mistakes.map((m, i) => <li key={i}>{m}</li>)}</ul></div>
             )}
           </div>
+        </div>
+      )}
+
+      {/* Verification Notes */}
+      {q.verification_notes && (
+        <div className={`rounded-xl p-4 mb-4 shadow-sm ${q.confidence === 'low' ? 'bg-red-50' : 'bg-yellow-50'}`}>
+          <h3 className={`text-sm font-semibold mb-1 ${q.confidence === 'low' ? 'text-red-600' : 'text-yellow-600'}`}>
+            {q.confidence === 'low' ? '⚠️ 校验提示' : 'ℹ️ 校验修正'}
+          </h3>
+          <p className={`text-sm whitespace-pre-wrap ${q.confidence === 'low' ? 'text-red-800' : 'text-yellow-800'}`}>
+            {q.verification_notes}
+          </p>
         </div>
       )}
 

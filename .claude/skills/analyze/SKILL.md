@@ -79,15 +79,52 @@ description: 当用户说「分析题目」「解析错题」「处理 pending �
 - `common_mistakes`：2-3条学生常犯错误
 - `related_topics`：相关联的知识点，便于后续关联学习
 
-**f. 更新 meta.json**
+**f. 视觉-语义二次校验**
+
+在 2e 之后、2g 之前执行。用结构化推理反向验证直觉识别结果。
+
+**策略 A：读图数值推算**（仅 `map` / `mixed` 且涉及数值读取时）
+
+1. 重新审视图片，只看图例、等高距标注、坐标轴刻度，记录识别结果
+2. 找到图中明确标注的数值作为参照点
+3. 从参照点按间隔推算目标值：`目标值 = 参照值 ± (间隔 × 格数)`
+4. 与 2d 中直接读取的值对比：偏差 > 1 个间隔 → 以推算值为准修正 answer/explanation
+
+**策略 B：语义校验**（所有题型）
+
+- **术语校验**：ocr_text 中的术语与原图文字逐一对照，以原图为准（不是替换为"标准术语"）
+- **语法匹配**：每个填空答案的词性/类别应与空位上下文匹配
+- **数值合理性**：answer/explanation 中的数值应在学科合理范围内（海拔 200~8848m、年降水 100~3000mm、气温 -40~45°C 等）
+
+**置信度判定**：
+- 全部通过，无修正 → `confidence: "high"`, `needs_manual_review: false`
+- 有问题但已修正 → `confidence: "medium"`, `needs_manual_review: false`，notes 记录修正内容
+- 有无法解决的矛盾 → `confidence: "low"`, `needs_manual_review: true`，notes 详细记录分歧
+
+low 不阻止写入，仅标记提示人工复核。
+
+**g. 更新 meta.json**
 
 更新以下字段：
 - `analysis_status`: `"pending"` → `"analyzed"`
 - `knowledge_points`: 从分析中提取的知识点标签数组
 - `difficulty`: `"easy"`（简单）/ `"medium"`（中等）/ `"hard"`（困难）
 - `analyzed_at`: 当前时间戳（ISO 8601 格式）
+- `confidence`: 二次校验的置信度（`"high"` / `"medium"` / `"low"`）
+- `needs_manual_review`: 置信度为 `"low"` 时为 `true`，否则为 `false`
+- `verification_notes`: 校验备注文字（high 时可写 `"两轮校验通过，无可疑分歧"`）
 
-**g. 创建/更新 Wiki 页面**
+**h. 更新错题记录**
+
+如果 `data/mistakes/{id}.json` 存在（即该题目标记为错题），**必须**更新以下字段：
+
+- `correct_answer`: 填入 `analysis.answer` 中的正确答案
+- `mistake_type`: 根据分析结果判断错因（`"knowledge_gap"` 知识盲区 / `"careless"` 粗心 / `"misunderstood"` 理解偏差 / `"other"` 其他）
+- 其余字段（`review_count`、`next_review_at`、`is_mastered` 等）保持不变
+
+如果 `data/mistakes/{id}.json` 不存在（非错题），跳过此步骤。
+
+**i. 创建/更新 Wiki 页面**
 
 - 检查 `data/wiki/` 下是否存在对应知识点的页面
 - 如果不存在，创建新的 Wiki 页面文件
@@ -99,6 +136,24 @@ description: 当用户说「分析题目」「解析错题」「处理 pending �
 - 分析了 X 道题目
 - 新增 Y 个知识点 Wiki 页面
 - 按学科分类列出各题型数量
+
+#### 低置信度题目提示
+
+如果本次分析中存在 `confidence` 为 `"low"` 或 `"medium"` 的题目，额外输出以下内容：
+
+1. **低置信度汇总**：
+   ```
+   ⚠️ 以下题目需要关注：
+   - [题目ID] 题型:map | confidence:low | 原因: 隧道口海拔直接读取与推算值矛盾
+   - [题目ID] 题型:fill | confidence:medium | 原因: OCR术语修正「降雨量」→「降水量」
+   ```
+
+2. **复核指引**：
+   - 告知用户：「其中 X 道题目置信度为 low，已标记 needs_manual_review，建议人工复核。」
+   - 「Y 道题目置信度为 medium，已自动修正，无需操作但请留意。」
+   - 「复核后请编辑 meta.json 将 needs_manual_review 改为 false，confidence 改为 high。」
+
+3. **medium 题目**：仅列出提醒，不要求必须复核。
 
 ## 学科特定分析要求
 
@@ -164,3 +219,4 @@ description: 当用户说「分析题目」「解析错题」「处理 pending �
 5. **学科识别**：通过 `meta.json` 中的 `subject` 字段（`geography`/`biology`）判断学科，据此调整分析策略
 6. **中文输出**：所有分析内容、OCR 文字、Wiki 内容均使用中文
 7. **JSON 有效性**：每次写入 meta.json 后必须验证 JSON 可解析，未通过验证的文件不允许标记为 `analyzed`
+8. **错题记录必须更新**：如果 `data/mistakes/{id}.json` 存在，分析完成后必须更新 `correct_answer` 和 `mistake_type`，不得跳过

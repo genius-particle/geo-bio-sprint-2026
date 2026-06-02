@@ -1,11 +1,11 @@
 {
   "question_id": "2026-06-01-13-01-41",
-  "wrong_answer": "见各小题空白或错答",
-  "correct_answer": "(1)温带大陆性；西岸；地形 (2)地区专业化；乳畜带；气候冷湿 (3)缺少热带区域",
-  "mistake_type": "other",
+  "wrong_answer": "",
+  "correct_answer": "(1) 温带大陆性；西岸；地形。(2) 地区生产专业化；乳畜带；气候冷湿，牧草生长良好。(3) 本土位于温带，缺少热带，无法大面积种植热带作物。",
+  "mistake_type": "knowledge_gap",
   "review_count": 0,
   "last_reviewed_at": null,
-  "next_review_at": "2026-06-02T13:01:41.635Z",
+  "next_review_at": "2026-06-03T15:05:09.591Z",
   "is_mastered": false,
   "user_notes": ""
 }

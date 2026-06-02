@@ -17,6 +17,7 @@ description: 当用户说「统计」「学习报告」「看看数据」时触�
    - 统计总题目数
    - 按 `subject` 分组（geography/biology）
    - 按 `analysis_status` 分组（pending/analyzed/error）
+   - 统计 `needs_manual_review === true` 的题目数（需人工复核）
    - 按 `question_type` 分组（选择题/填空题/读图题/判断题/简答题）
    - 按 `difficulty` 分组（1/2/3）
 
@@ -54,6 +55,7 @@ description: 当用户说「统计」「学习报告」「看看数据」时触�
 |------|------|
 | 总录入题目 | X 道 |
 | 已分析题目 | Y 道 |
+| 需人工复核 | R 道 |
 | 总错题数 | Z 道 |
 | 错题掌握率 | XX% |
 | 知识点总数 | W 个 |

@@ -4,6 +4,7 @@ export type Subject = 'geography' | 'biology';
 export type Difficulty = 'easy' | 'medium' | 'hard' | 'unknown';
 export type AnalysisStatus = 'pending' | 'analyzed' | 'failed';
 export type QuestionType = 'choice' | 'fill' | 'map' | 'judge' | 'essay' | 'mixed' | 'unknown';
+export type Confidence = 'high' | 'medium' | 'low';
 export type MistakeType = 'knowledge_gap' | 'careless' | 'misunderstood' | 'other';
 export type PracticeStatus = 'unattempted' | 'correct' | 'wrong' | 'skipped';
 
@@ -26,6 +27,9 @@ export interface Question {
   notes: string;
   created_at: string;
   analysis?: QuestionAnalysis;
+  confidence?: Confidence;
+  needs_manual_review?: boolean;
+  verification_notes?: string;
 }
 
 export interface QuestionAnalysis {
