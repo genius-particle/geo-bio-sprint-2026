@@ -1,11 +1,11 @@
 {
   "question_id": "2026-05-31-11-50-43",
-  "wrong_answer": "",
-  "correct_answer": "",
-  "mistake_type": "other",
+  "wrong_answer": "A",
+  "correct_answer": "D",
+  "mistake_type": "knowledge_gap",
   "review_count": 0,
   "last_reviewed_at": null,
-  "next_review_at": "2026-06-01T11:50:43.964Z",
+  "next_review_at": "2026-06-03T15:05:09.398Z",
   "is_mastered": false,
   "user_notes": ""
 }

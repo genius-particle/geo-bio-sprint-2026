@@ -1,11 +1,11 @@
 {
   "question_id": "2026-06-01-13-00-41",
   "wrong_answer": "",
-  "correct_answer": "(1) 山脊；山谷；长城沿山脊便于防御，铁路沿山谷坡度缓。(2) 700。(3) 坡度太陡，“人”字形延长线路降低坡度。(4) 速度快。",
-  "mistake_type": "other",
+  "correct_answer": "(1) 山脊；山谷（或缓坡）；长城建于山脊便于瞭望和防御，铁路沿山谷或缓坡修建坡度较小，便于施工和火车通行。(2) 640。(3) 八达岭段坡度很陡，当时火车爬坡能力有限，采用“人”字形折返可加长线路、降低坡度，使火车能翻越关沟。(4) 速度快（答出一点即可）。",
+  "mistake_type": "knowledge_gap",
   "review_count": 0,
   "last_reviewed_at": null,
-  "next_review_at": "2026-06-02T13:00:41.916Z",
+  "next_review_at": "2026-06-03T15:05:09.490Z",
   "is_mastered": false,
   "user_notes": ""
 }
