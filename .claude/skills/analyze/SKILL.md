@@ -39,13 +39,14 @@ description: 当用户说「分析题目」「解析错题」「处理 pending �
 
 **c. 题型识别**
 
-判断题型并写入 `meta.json` 的 `question_type` 字段，可选值：
+判断题型并写入 `meta.json` 的 `question_type` 字段，可选值（**必须使用英文枚举值，不要写中文**）：
 
-- `选择题`：有明确选项（A/B/C/D）
-- `填空题`：包含空格或横线待填
-- `读图题`：包含地图、图表、示意图等需要读图
-- `判断题`：要求判断对错
-- `简答题`：需要开放性作答
+- `choice`：有明确选项（A/B/C/D）
+- `fill`：包含空格或横线待填
+- `map`：包含地图、图表、示意图等需要读图
+- `judge`：要求判断对错
+- `essay`：需要开放性作答
+- `mixed`：综合题，包含多种题型
 
 **d. 按题型分析**
 
@@ -83,7 +84,7 @@ description: 当用户说「分析题目」「解析错题」「处理 pending �
 更新以下字段：
 - `analysis_status`: `"pending"` → `"analyzed"`
 - `knowledge_points`: 从分析中提取的知识点标签数组
-- `difficulty`: `1`（简单）/ `2`（中等）/ `3`（困难）
+- `difficulty`: `"easy"`（简单）/ `"medium"`（中等）/ `"hard"`（困难）
 - `analyzed_at`: 当前时间戳（ISO 8601 格式）
 
 **g. 创建/更新 Wiki 页面**
