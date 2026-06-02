@@ -22,6 +22,7 @@ export interface Question {
   tags: string[];
   is_mistake: boolean;
   analysis_status: AnalysisStatus;
+  image_count?: number;
   notes: string;
   created_at: string;
   analysis?: QuestionAnalysis;

@@ -17,11 +17,13 @@ server/index.ts → registerApiRoutes(server)
 | 方法 | 路径 | 功能 |
 |------|------|------|
 | GET | `/` | 列出所有题目 (listDirs + readJson) |
-| POST | `/` | 新增题目 (ID=时间戳, 可含 image_base64, 可自动建错题) |
+| POST | `/` | 新增题目 (ID=时间戳, 含 image_base64_list, 最多5张, 可自动建错题) |
 | GET | `/:id` | 获取单个题目 meta.json |
-| GET | `/:id/image` | 获取题目图片 (image/jpeg) |
+| GET | `/:id/images` | 获取题目图片索引列表 `{images: [1,2,3]}` |
+| GET | `/:id/image/:index` | 获取指定序号的图片 (image-N.jpg, index=1回退image.jpg) |
+| GET | `/:id/image` | 获取第一张图片 (缩略图兼容, image-1.jpg → image.jpg) |
 | PUT | `/:id` | 更新题目 (merge) |
-| DELETE | `/:id` | 删除题目 (meta + image) |
+| DELETE | `/:id` | 删除题目 (meta + 所有 image-N.jpg + image.jpg) |
 
 ### mistakes.ts
 

@@ -8,7 +8,9 @@
 data/
 ├── questions/{id}/
 │   ├── meta.json        # 题目元数据
-│   └── image.jpg        # 题目图片 (JPEG)
+│   ├── image-1.jpg      # 题目图片 1 (JPEG)
+│   ├── image-2.jpg      # 题目图片 2（可选，跨页题目）
+│   └── ...              # image-N.jpg（最多 ~5 张）
 ├── mistakes/{id}.json   # 错题记录 (id = question_id)
 ├── wiki/
 │   ├── index.md         # 自动维护的目录 (按学科分组)
@@ -34,6 +36,7 @@ data/
   "tags": [],                         // 用户标签
   "is_mistake": false,
   "analysis_status": "pending",      // pending | analyzed | failed
+  "image_count": 1,                  // 图片数量（多图支持，默认 1）
   "notes": "",
   "created_at": "2026-05-31T14:30:00.000Z",
   "analysis": {                       // /analyze 后填充 (可选)

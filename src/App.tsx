@@ -153,7 +153,7 @@ function fixExifRotation(base64: string): Promise<string> {
 export default function App() {
   const [view, setView] = useState<ViewMode>('home');
   const [croppingImage, setCroppingImage] = useState<string | null>(null);
-  const [croppedImage, setCroppedImage] = useState<string | null>(null);
+  const [croppedImages, setCroppedImages] = useState<string[]>([]);
   const [selectedQuestionId, setSelectedQuestionId] = useState<string | null>(null);
   const [refreshKey, setRefreshKey] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -174,12 +174,20 @@ export default function App() {
 
   const handleCropConfirm = (cropped: string) => {
     setCroppingImage(null);
-    setCroppedImage(cropped);
+    setCroppedImages(prev => [...prev, cropped]);
     setView('capture');
   };
 
+  const handleRemoveImage = (index: number) => {
+    setCroppedImages(prev => {
+      const next = prev.filter((_, i) => i !== index);
+      if (next.length === 0) setView('home');
+      return next;
+    });
+  };
+
   const handleSave = () => {
-    setCroppedImage(null);
+    setCroppedImages([]);
     setRefreshKey(k => k + 1);
     setView('home');
   };
@@ -200,7 +208,7 @@ export default function App() {
       {/* Main Content */}
       <div className="flex-1 overflow-auto">
         {view === 'home' && <DashboardView onCapture={() => fileInputRef.current?.click()} onSelectQuestion={openQuestion} refreshKey={refreshKey} />}
-        {view === 'capture' && croppedImage && <QuestionCaptureView imageBase64={croppedImage} onSave={handleSave} onCancel={() => { setCroppedImage(null); setView('home'); }} />}
+        {view === 'capture' && croppedImages.length > 0 && <QuestionCaptureView imageBase64List={croppedImages} onAddImage={() => fileInputRef.current?.click()} onRemoveImage={handleRemoveImage} onSave={handleSave} onCancel={() => { setCroppedImages([]); setView('home'); }} />}
         {view === 'detail' && selectedQuestionId && <QuestionDetailView questionId={selectedQuestionId} onBack={() => setView('home')} />}
         {view === 'mistakes' && <MistakeBookView onSelectQuestion={openQuestion} />}
         {view === 'knowledge' && <KnowledgeBaseView />}
