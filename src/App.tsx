@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import type { ViewMode } from './types';
 import ImageCropper from './components/ImageCropper';
 import DashboardView from './components/DashboardView';
@@ -158,6 +158,44 @@ export default function App() {
   const [refreshKey, setRefreshKey] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // 追踪当前视图，用于 popstate 防抖（过滤 iOS 文件选择器的幽灵 popstate）
+  const viewRef = useRef(view);
+  viewRef.current = view;
+
+  // 导航辅助函数：子视图用 pushState（可回退），Tab 切换用 replaceState（不堆积）
+  const navigate = (newView: ViewMode, push: boolean = false) => {
+    // 离开子视图时清理关联状态
+    if (newView !== 'capture') { setCroppedImages([]); setCroppingImage(null); }
+    if (newView !== 'detail') setSelectedQuestionId(null);
+    // 已在当前视图时不重复 push（避免多图拍摄堆积 capture 条目）
+    if (push && viewRef.current === newView) {
+      history.replaceState({ view: newView }, '');
+    } else if (push) {
+      history.pushState({ view: newView }, '');
+    } else {
+      history.replaceState({ view: newView }, '');
+    }
+    setView(newView);
+  };
+
+  // 监听浏览器后退手势
+  useEffect(() => {
+    // 初始化首页 history state
+    history.replaceState({ view: 'home' }, '');
+
+    const handlePopState = (e: PopStateEvent) => {
+      const newView = e.state?.view as ViewMode | undefined;
+      // 忽略无效 popstate（iOS 文件选择器产生的幽灵条目）
+      if (!newView || newView === viewRef.current) return;
+      setView(newView);
+      if (newView !== 'detail') setSelectedQuestionId(null);
+      if (newView !== 'capture') { setCroppedImages([]); setCroppingImage(null); }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -175,26 +213,23 @@ export default function App() {
   const handleCropConfirm = (cropped: string) => {
     setCroppingImage(null);
     setCroppedImages(prev => [...prev, cropped]);
-    setView('capture');
+    navigate('capture', true);
   };
 
   const handleRemoveImage = (index: number) => {
-    setCroppedImages(prev => {
-      const next = prev.filter((_, i) => i !== index);
-      if (next.length === 0) setView('home');
-      return next;
-    });
+    const remaining = croppedImages.filter((_, i) => i !== index);
+    setCroppedImages(remaining);
+    if (remaining.length === 0) history.back();
   };
 
   const handleSave = () => {
-    setCroppedImages([]);
     setRefreshKey(k => k + 1);
-    setView('home');
+    navigate('home');
   };
 
   const openQuestion = (id: string) => {
     setSelectedQuestionId(id);
-    setView('detail');
+    navigate('detail', true);
   };
 
   return (
@@ -208,8 +243,8 @@ export default function App() {
       {/* Main Content */}
       <div className="flex-1 overflow-auto">
         {view === 'home' && <DashboardView onCapture={() => fileInputRef.current?.click()} onSelectQuestion={openQuestion} refreshKey={refreshKey} />}
-        {view === 'capture' && croppedImages.length > 0 && <QuestionCaptureView imageBase64List={croppedImages} onAddImage={() => fileInputRef.current?.click()} onRemoveImage={handleRemoveImage} onSave={handleSave} onCancel={() => { setCroppedImages([]); setView('home'); }} />}
-        {view === 'detail' && selectedQuestionId && <QuestionDetailView questionId={selectedQuestionId} onBack={() => setView('home')} />}
+        {view === 'capture' && croppedImages.length > 0 && <QuestionCaptureView imageBase64List={croppedImages} onAddImage={() => fileInputRef.current?.click()} onRemoveImage={handleRemoveImage} onSave={handleSave} onCancel={() => navigate('home')} />}
+        {view === 'detail' && selectedQuestionId && <QuestionDetailView questionId={selectedQuestionId} onBack={() => history.back()} />}
         {view === 'mistakes' && <MistakeBookView onSelectQuestion={openQuestion} />}
         {view === 'knowledge' && <KnowledgeBaseView />}
         {view === 'practice' && <PracticeView />}
@@ -218,7 +253,7 @@ export default function App() {
       {/* Bottom Tab Bar */}
       <div className="flex border-t border-gray-200 bg-white safe-area-bottom">
         {TABS.map(tab => (
-          <button key={tab.id} onClick={() => setView(tab.id)}
+          <button key={tab.id} onClick={() => navigate(tab.id)}
             className={`flex-1 py-3 text-center ${view === tab.id ? 'text-green-600' : 'text-gray-400'}`}>
             <div className="text-xl">{tab.icon}</div>
             <div className="text-xs mt-0.5">{tab.label}</div>
