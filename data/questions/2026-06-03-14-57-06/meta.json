@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-03-14-57-06",
+  "subject": "geography",
+  "chapter": "第二章 地图",
+  "knowledge_points": ["等高线地形判读", "地形类型", "山谷与河流"],
+  "difficulty": "medium",
+  "question_type": "map",
+  "ocr_text": "16. 阅读图文资料，回答下列问题。（7分）\n2025年3月21日，某中学师生前往某村开展红色研学活动。图10为该村等高线地形图。\n【了解“红色故土”】\n（1）同学们查阅等高线地形图，发现该村所在区域属于______（填地形类型），地势险要，易守难攻，若该区域发育一条河流，应在______（填A处或B处）。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-03T14:57:06.975Z",
+  "analyzed_at": "2026-06-03T15:36:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "等高距100米、海拔300—600米以上，判为山地；A处等高线向高处凸为山谷可发育河流；手写“盆地”与图不符已修正",
+  "analysis": {
+    "answer": "（1）山地；A",
+    "explanation": "图10等高线较密集，海拔300—600米以上，整体为山地，不是盆地。A处等高线向高处（数值大的一侧）弯曲，为山谷，易汇集水源发育河流；B处位于山脊或陡坡，不易发育河流。",
+    "key_concept": "等高线地形图判读",
+    "common_mistakes": [
+      "将山地误判为盆地",
+      "混淆山谷与山脊（河流应位于山谷）",
+      "不看等高线疏密和海拔就下结论"
+    ],
+    "related_topics": ["地形类型判断", "山谷与山脊判读"]
+  }
+}

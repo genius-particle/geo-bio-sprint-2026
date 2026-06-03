@@ -1,0 +1,36 @@
+{
+  "id": "2026-06-03-15-14-32",
+  "subject": "geography",
+  "chapter": "第四章 天气与气候",
+  "knowledge_points": [
+    "热带沙漠气候",
+    "热带草原",
+    "卡塔尔"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "卡塔尔气候表与世界杯期间气候；斑马景观对应热带草原气候。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-03T15:14:32.000Z",
+  "analyzed_at": "2026-06-03T16:10:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "第2题11—12月炎热干燥选B",
+  "analysis": {
+    "answer": "1.C  2.B  3.B  4.B",
+    "explanation": "卡塔尔全年高温、降水极少，为热带沙漠气候；11—12月仍较暖且降水少；斑马景观为热带草原，对应夏雨型高温气候图B。",
+    "key_concept": "气候类型与景观",
+    "common_mistakes": [
+      "世界杯期间误判为高温多雨"
+    ],
+    "related_topics": [
+      "西亚气候"
+    ]
+  }
+}

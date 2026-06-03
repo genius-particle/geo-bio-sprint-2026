@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-03-15-03-54",
+  "subject": "geography",
+  "chapter": "第十一章 极地地区",
+  "knowledge_points": ["南极地区", "欺骗岛", "极地自然景观"],
+  "difficulty": "easy",
+  "question_type": "choice",
+  "ocr_text": "7. 游客在欺骗岛可能看到的自然景观是（ ）\nA. 海面漂浮的冰山\nB. 高大茂密的椰林\nC. 终日不落的太阳\nD. 成群结队的斑马",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-03T15:03:54.006Z",
+  "analyzed_at": "2026-06-03T15:48:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "欺骗岛位于南极附近，正确答案为A；学生选D与区域不符",
+  "analysis": {
+    "answer": "A",
+    "explanation": "欺骗岛位于南极洲附近，属寒带环境，常见漂浮冰山。B为热带景观，C为极圈内极昼现象（该岛约63°S，不在南极圈内），D为非洲草原动物，均不符合。",
+    "key_concept": "南极地区自然特征",
+    "common_mistakes": [
+      "未联系岛屿纬度位置就凭直觉选动物或植被",
+      "混淆极昼现象与南极圈范围",
+      "把欺骗岛误认为其他区域"
+    ],
+    "related_topics": ["南极地区", "自然景观与纬度"]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "2026-06-03-15-12-15",
+  "subject": "geography",
+  "chapter": "第三章 陆地和海洋",
+  "knowledge_points": [
+    "七大洲四大洋",
+    "半球划分"
+  ],
+  "difficulty": "easy",
+  "question_type": "fill",
+  "ocr_text": "七大洲面积：亚洲最大、大洋洲最小；全部位于北半球的有___、欧洲；四大洋从大到小：太平洋、大西洋、印度洋、北冰洋。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-03T15:12:15.000Z",
+  "analyzed_at": "2026-06-03T16:06:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "亚洲跨南北半球，应填北美洲",
+  "analysis": {
+    "answer": "北美洲；欧洲",
+    "explanation": "亚洲南部岛屿跨赤道，并非全部在北半球；北美洲和欧洲全部位于北半球。",
+    "key_concept": "大洲半球位置",
+    "common_mistakes": [
+      "误认为亚洲全在北半球"
+    ],
+    "related_topics": [
+      "七大洲面积排序"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-03-15-17-31",
+  "subject": "geography",
+  "chapter": "第七章 北方地区",
+  "knowledge_points": [
+    "温带季风气候",
+    "华北地区",
+    "气温降水读图"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "我国某地气温曲线降水量柱状图，完成10~12题。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-03T15:17:31.000Z",
+  "analyzed_at": "2026-06-03T16:16:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "第12题春季升温快、降水少选A",
+  "analysis": {
+    "answer": "10.D  11.B  12.A",
+    "explanation": "冬季低于0°C、降水少，夏季高温多雨，为温带季风气候，典型在华北；春季（3—5月）气温快速回升而降水仍少。",
+    "key_concept": "温带季风气候读图",
+    "common_mistakes": [
+      "春季误判为寒冷干燥",
+      "区域误判为南方"
+    ],
+    "related_topics": [
+      "秦岭—淮河以北气候"
+    ]
+  }
+}

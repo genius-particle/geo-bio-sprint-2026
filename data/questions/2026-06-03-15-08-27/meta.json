@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-03-15-08-27",
+  "subject": "geography",
+  "chapter": "第三章 中国的自然资源",
+  "knowledge_points": [
+    "海洋资源",
+    "海水养殖",
+    "海洋油气",
+    "晒盐条件"
+  ],
+  "difficulty": "easy",
+  "question_type": "fill",
+  "ocr_text": "3. 我国海洋资源包括：（1）海洋渔业……海水养殖。（2）矿产/海洋资源：渤海、南海油气。（3）风电、潮汐能。（4）长芦、布袋盐场晒盐条件。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-03T15:08:27.621Z",
+  "analyzed_at": "2026-06-03T16:00:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "第（2）题需写矿产海洋资源；晒盐应写蒸发量大",
+  "analysis": {
+    "answer": "（1）海洋渔业；海水养殖（2）矿产；南海（3）风电、潮汐能（4）量大；背风",
+    "explanation": "海洋资源包括渔业、矿产（油气在渤海、南海北部大陆架）、海洋能和海盐。长芦、布袋盐场需降水少、晴天多、蒸发量大；布袋位于台湾山脉背风坡。",
+    "key_concept": "中国海洋资源",
+    "common_mistakes": [
+      "漏写矿产",
+      "蒸发大漏量",
+      "混淆迎风背风坡"
+    ],
+    "related_topics": [
+      "渤海油气",
+      "长芦盐场"
+    ]
+  }
+}

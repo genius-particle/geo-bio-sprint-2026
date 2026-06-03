@@ -1,0 +1,36 @@
+{
+  "id": "2026-06-03-15-09-22",
+  "subject": "geography",
+  "chapter": "第三章 中国的自然资源",
+  "knowledge_points": [
+    "土地利用类型",
+    "耕地后备资源"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "读土地利用构成图和人均耕地统计，完成1~2题。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-03T15:09:22.631Z",
+  "analyzed_at": "2026-06-03T16:02:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "第1题选C，第2题选B",
+  "analysis": {
+    "answer": "1.C  2.B",
+    "explanation": "草地占比最大，宜农荒地仅2.1%，耕地后备不足；材料指出生态用地增加是耕地减少主因。",
+    "key_concept": "中国土地资源",
+    "common_mistakes": [
+      "误认为耕地比重最大",
+      "忽略材料选城建扩张"
+    ],
+    "related_topics": [
+      "耕地保护"
+    ]
+  }
+}

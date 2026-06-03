@@ -1,0 +1,35 @@
+{
+  "id": "2026-06-03-15-16-32",
+  "subject": "geography",
+  "chapter": "第四章 天气与气候",
+  "knowledge_points": [
+    "天气符号",
+    "次生灾害"
+  ],
+  "difficulty": "easy",
+  "question_type": "choice",
+  "ocr_text": "暴雨符号（8）与不属于强降雨次生灾害的选项（9）。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-03T15:16:32.000Z",
+  "analyzed_at": "2026-06-03T16:14:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "第9题台风不是强降雨引发的次生灾害",
+  "analysis": {
+    "answer": "8.C  9.D",
+    "explanation": "四道竖线表示暴雨；崩塌、滑坡、泥石流可由暴雨引发，台风是独立灾害。",
+    "key_concept": "气象符号与灾害链",
+    "common_mistakes": [
+      "把崩塌当作非次生灾害"
+    ],
+    "related_topics": [
+      "长江中下游洪涝"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-03-15-13-27",
+  "subject": "geography",
+  "chapter": "第四章 天气与气候",
+  "knowledge_points": [
+    "气候类型判读",
+    "气温降水图"
+  ],
+  "difficulty": "hard",
+  "question_type": "map",
+  "ocr_text": "世界的气候：9幅气温降水图判读气候类型。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-03T15:13:27.000Z",
+  "analyzed_at": "2026-06-03T16:08:00.000Z",
+  "confidence": "medium",
+  "needs_manual_review": false,
+  "verification_notes": "多幅图热带草原/季风、温带大陆性/沙漠、温带海洋性/亚热带季风混淆已按教师红笔修正",
+  "analysis": {
+    "answer": "图2热带季风；图3热带草原；图6温带海洋性；图7温带大陆性；图9亚热带季风（其余：热带雨林、地中海、温带季风、寒带等按图判读）",
+    "explanation": "判读要点：看全年高温还是四季分明；降水是全年多雨、夏季集中还是冬雨夏干。热带草原与季风区别在降水峰值宽度；温带大陆性冬冷夏热、降水少；亚热带季风冬季温和、夏季高温多雨。",
+    "key_concept": "气候类型图判读",
+    "common_mistakes": [
+      "热带草原与季风混淆",
+      "温带沙漠与大陆性混淆",
+      "温带海洋性与亚热带季风混淆"
+    ],
+    "related_topics": [
+      "世界气候分布"
+    ]
+  }
+}

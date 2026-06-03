@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-03-15-15-52",
+  "subject": "geography",
+  "chapter": "第四章 天气与气候",
+  "knowledge_points": [
+    "气温日变化",
+    "天气符号",
+    "次生灾害"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "西安四时刻气温观测5~7题；暴雨符号与次生灾害8~9题。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-03T15:15:52.000Z",
+  "analyzed_at": "2026-06-03T16:12:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "第9题应选D台风（非强降雨引发）",
+  "analysis": {
+    "answer": "5.C  6.B  7.D  8.C  9.D",
+    "explanation": "日最高温约14时；①②约6时与14时；日均温约9°C；四竖线表暴雨；崩塌滑坡泥石流由强降雨引发，台风是独立天气系统。",
+    "key_concept": "气温观测与灾害",
+    "common_mistakes": [
+      "混淆次生灾害与台风",
+      "日最高温时刻记错"
+    ],
+    "related_topics": [
+      "气象灾害"
+    ]
+  }
+}
