@@ -52,14 +52,14 @@ export default function QuestionDetailView({ questionId, onBack }: {
       {/* Images */}
       {totalImages > 0 && (
         <div className="bg-white rounded-xl p-2 mb-4 shadow-sm">
-          <div className="flex gap-2 overflow-x-auto pb-1">
+          <div className="flex flex-col gap-2">
             {Array.from({ length: totalImages }, (_, i) => i + 1).map(idx => (
               <img key={idx}
                 src={imageCount != null && imageCount > 0
                   ? `/api/questions/${q.id}/image/${idx}`
                   : `/api/questions/${q.id}/image`}
                 alt={`题目图 ${idx}`}
-                className="w-full rounded-lg flex-shrink-0 cursor-pointer max-h-64 object-contain"
+                className="w-full rounded-lg cursor-pointer max-h-80 object-contain"
                 onClick={() => setZoomIdx(idx)}
               />
             ))}
