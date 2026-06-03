@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { createQuestion } from '../services/api';
-import { CHAPTERS } from '../data/chapters';
+import chaptersData from '../../data/chapters.json';
 
 export default function QuestionCaptureView({ imageBase64List, onAddImage, onRemoveImage, onSave, onCancel }: {
   imageBase64List: string[];
@@ -18,8 +18,7 @@ export default function QuestionCaptureView({ imageBase64List, onAddImage, onRem
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState('');
 
-  const chapters = CHAPTERS[subject];
-  const allChapters = Object.values(chapters).flat();
+  const allChapters = Object.values(chaptersData[subject]).flat().map((item: { chapter: string }) => item.chapter);
 
   const handleSave = async () => {
     setSaving(true);

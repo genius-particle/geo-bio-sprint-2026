@@ -37,6 +37,7 @@ description: 当用户说「重置数据」「清空数据」「重新开始」�
 {
   "id": "保持原值",
   "subject": "保持原值",
+  "chapter": "保持原值",
   "analysis_status": "pending",
   "difficulty": "unknown",
   "question_type": "unknown",
@@ -46,7 +47,7 @@ description: 当用户说「重置数据」「清空数据」「重新开始」�
 }
 ```
 
-清除的字段包括但不限于：`chapter`、`knowledge_points`、`tags`、`source`、`source_detail`、`ocr_text`、`ocr_quality`、`analyzed_at`、`analysis`、`confidence`、`needs_manual_review`、`verification_notes`。
+清除的字段包括但不限于：`knowledge_points`、`tags`、`source`、`source_detail`、`ocr_text`、`ocr_quality`、`analyzed_at`、`analysis`、`confidence`、`needs_manual_review`、`verification_notes`。
 
 ### 第三步：重置错题记录
 
