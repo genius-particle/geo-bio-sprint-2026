@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-05-14-20-09",
+  "subject": "biology",
+  "chapter": "第四单元 第三章 人体的呼吸",
+  "knowledge_points": [
+    "发生在肺内的气体交换",
+    "呼吸运动"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "6. 人的呼吸频率和深度会随机体活动状态的不同而发生变化。如图表示某人在剧烈运动状态下的呼吸情况，相关分析正确的是 ( )\nA. 与睡眠时相比，剧烈运动时呼吸频率加快、深度变浅\nB. ab段膈肌处于舒张状态，肺内气体压力增大\nC. bc段膈顶部上升，胸腔容积扩大\nD. 20秒内每完成一次吸气和呼气所用的时间相同",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T14:20:09.320Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T16:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "手写批注选B与推导一致，ab段为呼气段，两轮校验通过",
+  "analysis": {
+    "answer": "B",
+    "explanation": "读肺容量-时间曲线：ab段肺容量下降，表示呼气。呼气时膈肌舒张、膈顶上升，胸腔容积缩小，肺内气体压力增大，将气体压出肺外。bc段肺容量上升为吸气，膈肌收缩。剧烈运动时呼吸频率加快、深度加深（不是变浅）。",
+    "key_concept": "呼吸运动与肺容量变化",
+    "common_mistakes": [
+      "把呼气段当成吸气",
+      "混淆膈肌收缩/舒张与胸腔容积变化"
+    ],
+    "related_topics": [
+      "膈肌",
+      "肺通气",
+      "呼吸频率"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-05-15-16-43",
+  "subject": "biology",
+  "chapter": "第七单元 第一章 生物的生殖和发育",
+  "knowledge_points": [
+    "昆虫的生殖和发育",
+    "基因的显性和隐性"
+  ],
+  "difficulty": "hard",
+  "question_type": "mixed",
+  "ocr_text": "17. 家蚕发育与足色遗传...(1)发育起点____。(2)发育顺序④→____→____→③。(3)子代出现性状____。(4)白足基因型____；染色体由____构成。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T15:16:43.598Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T17:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "发育顺序卵-幼虫-蛹-成虫，手写顺序颠倒",
+  "analysis": {
+    "answer": "(1) 受精卵 (2) ②→①（④→②→①→③） (3) 性状分离 (4) bb；DNA和蛋白质",
+    "explanation": "家蚕与人一样由受精卵发育。完全变态发育：卵④→幼虫②→蛹①→成虫③。亲代均黄足子代出现白足是性状分离现象。白足为隐性，基因型bb。染色体主要由DNA和蛋白质组成。",
+    "key_concept": "昆虫变态发育与遗传",
+    "common_mistakes": [
+      "幼虫与蛹顺序颠倒",
+      "变异与性状分离概念混淆"
+    ],
+    "related_topics": [
+      "完全变态",
+      "相对性状",
+      "染色体"
+    ]
+  }
+}

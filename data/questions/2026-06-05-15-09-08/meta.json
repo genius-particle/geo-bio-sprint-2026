@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-05-15-09-08",
+  "subject": "biology",
+  "chapter": "第七单元 第二章 生物的遗传与变异",
+  "knowledge_points": [
+    "基因控制生物的性状",
+    "基因在亲子代间的传递",
+    "种子的萌发"
+  ],
+  "difficulty": "hard",
+  "question_type": "mixed",
+  "ocr_text": "14. 小麦杂交育种与水稻遗传实验...(1)-(7) 杂交育种、相对性状、基因型、胚的结构等。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 2,
+  "notes": "",
+  "created_at": "2026-06-05T15:09:08.549Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T17:00:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "胚不含胚乳选B，手写D批改改B",
+  "analysis": {
+    "answer": "(1) 杂交育种；可遗传 (2) X或Y (3) 相对性状；短穗 (4) Dd (5) 678 (6) 有性生殖；遗传物质、环境 (7) B",
+    "explanation": "小偃6号通过杂交选育，变异可遗传。水稻花粉精子性染色体X或Y（题设）。短×短→长短穗约3:1，短穗为显性。丙组短穗为Dd。甲组Dd×Dd子代短穗占3/4，226÷1=678不对—226是长穗(dd)占1/4，短穗=226×3=678。胚由胚芽、胚轴、胚根、子叶组成选B，不含胚乳。",
+    "key_concept": "遗传规律与种子结构",
+    "common_mistakes": [
+      "胚的结构误选含胚乳的D",
+      "甲组子代数量比例计算错误"
+    ],
+    "related_topics": [
+      "杂交育种",
+      "显隐性",
+      "胚的结构"
+    ]
+  }
+}

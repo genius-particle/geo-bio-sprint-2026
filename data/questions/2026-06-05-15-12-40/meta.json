@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-05-15-12-40",
+  "subject": "biology",
+  "chapter": "第七单元 第二章 生物的遗传与变异",
+  "knowledge_points": [
+    "基因的显性和隐性",
+    "基因在亲子代间的传递"
+  ],
+  "difficulty": "hard",
+  "question_type": "mixed",
+  "ocr_text": "17. 马毛色栗色与白色遗传...(1) 基因是____片段。(2) 相对性状；____组；____显性。(3) 乙组栗色马____；丙组子代栗色____。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 2,
+  "notes": "",
+  "created_at": "2026-06-05T15:12:40.842Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T17:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "乙组亲代栗色马可为BB或Bb，手写批改一致",
+  "analysis": {
+    "answer": "(1) DNA (2) 相对性状；乙；栗色 (3) BB或Bb；Bb",
+    "explanation": "基因是有遗传效应的DNA片段。乙组栗×栗→栗28白7，出现性状分离，栗色显性。乙组亲代栗色马基因型为BB或Bb。丙组白(bb)×栗(Bb)→子代栗色均为Bb。",
+    "key_concept": "单基因遗传与基因型推断",
+    "common_mistakes": [
+      "亲代基因型只写Bb漏BB",
+      "显隐性判断组别选错"
+    ],
+    "related_topics": [
+      "相对性状",
+      "显性隐性",
+      "遗传图解"
+    ]
+  }
+}

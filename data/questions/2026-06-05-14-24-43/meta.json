@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-05-14-24-43",
+  "subject": "biology",
+  "chapter": "第三单元 第二章 植物体内的物质与能量变化",
+  "knowledge_points": [
+    "光合作用",
+    "植株的生长"
+  ],
+  "difficulty": "medium",
+  "question_type": "mixed",
+  "ocr_text": "18. 玉米灌溉方式实验...(1) 控制变量；减小偶然性。(2) 膜下滴灌；光合作用。(3) 膜下滴灌；根；水和无机盐。(4) 进一步验证应测量____。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T14:24:43.391Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T16:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "第(4)空手写批改改为根的数量，与(3)推理一致",
+  "analysis": {
+    "answer": "(1) 控制变量；减小偶然性，使实验结果更科学 (2) 膜下滴灌；光合作用 (3) 膜下滴灌；根；水；无机盐 (4) 根的数量",
+    "explanation": "实验需控制变量、多样本减小偶然性。膜下滴灌叶面积最大，光合最强，产量高且耗水少。根吸收水和无机盐。要验证“促进根的生长”，应测量根的数量（而非植株内水分无机盐含量）。",
+    "key_concept": "对照实验与根的吸收功能",
+    "common_mistakes": [
+      "验证根的生长却测量植株内含物",
+      "未理解实验变量与检测指标对应"
+    ],
+    "related_topics": [
+      "对照实验",
+      "根的作用",
+      "光合作用"
+    ]
+  }
+}

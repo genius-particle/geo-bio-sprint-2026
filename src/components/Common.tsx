@@ -1,5 +1,15 @@
 import React from 'react';
 
+// --- 响应式页面容器（手机 max-w-lg，Pad md/lg 逐级放宽）---
+
+export function PageContainer({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={`p-4 md:p-6 lg:p-8 w-full max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto ${className}`}>
+      {children}
+    </div>
+  );
+}
+
 // --- Reusable Loading Spinner ---
 
 interface LoadingSpinnerProps {

@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-05-14-20-45",
+  "subject": "biology",
+  "chapter": "第二单元 第二章 动物的类群",
+  "knowledge_points": [
+    "尝试对生物进行分类",
+    "鸟和哺乳动物"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "9. 小明对青蛙、蛇、蝙蝠和孔雀四种动物进行了如下归类，下列分析正确的是 ( )\nA. 甲是孔雀，卵生、用气囊辅助呼吸\nB. 乙是蝙蝠，体表被毛、胎生哺乳\nC. 丙是蛇，有鳞片防止体内水分蒸发\nD. 丁是青蛙，进行气体交换的器官是肺",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T14:20:45.018Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T16:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "分类树推导甲蝙蝠乙孔雀，手写批注与C一致",
+  "analysis": {
+    "answer": "C",
+    "explanation": "分类树：恒温有齿→甲蝙蝠，恒温无齿→乙孔雀，不恒温肺发达→丙蛇，不恒温肺不发达→丁青蛙。C正确：蛇体表有鳞片，可防止体内水分蒸发。A错（孔雀不用气囊辅助呼吸），B错（乙是孔雀不是蝙蝠），D错（青蛙成体用肺和皮肤呼吸）。",
+    "key_concept": "动物分类与特征",
+    "common_mistakes": [
+      "把乙误认为蝙蝠",
+      "混淆鸟类的呼吸方式"
+    ],
+    "related_topics": [
+      "恒温动物",
+      "爬行动物",
+      "哺乳动物"
+    ]
+  }
+}

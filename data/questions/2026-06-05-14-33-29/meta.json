@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-05-14-33-29",
+  "subject": "biology",
+  "chapter": "第一单元 第三章 从细胞到生物体",
+  "knowledge_points": [
+    "植物体的结构层次"
+  ],
+  "difficulty": "hard",
+  "question_type": "mixed",
+  "ocr_text": "13. 植物体结构层次概念图...(1) 细胞a是____。(2) ①表示____。(3) A是____组织。(4) B是____；该植物体属于____植物。(5) 动物体还应增加____层次。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T14:33:29.216Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T17:00:00.000Z",
+  "confidence": "medium",
+  "needs_manual_review": false,
+  "verification_notes": "第(2)(4)空手写批改有分歧，按课本标准答案写入",
+  "analysis": {
+    "answer": "(1) 受精卵 (2) 分裂、生长、分化 (3) 输导 (4) 器官；被子 (5) 系统",
+    "explanation": "植物由受精卵发育而来。①表示细胞分裂、生长和分化。运输营养物质的A是输导组织。不同组织构成器官B。仅有根、茎、叶、种子且种子无果皮包被为裸子植物；若有花果实则为被子。常见题设“根茎叶和种子”指裸子植物。B是器官。动物比植物多“系统”层次。",
+    "key_concept": "植物体结构层次",
+    "common_mistakes": [
+      "①生理活动表述不完整",
+      "裸子与被子植物判断错误"
+    ],
+    "related_topics": [
+      "组织",
+      "器官",
+      "系统"
+    ]
+  }
+}

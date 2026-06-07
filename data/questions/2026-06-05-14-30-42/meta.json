@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-05-14-30-42",
+  "subject": "biology",
+  "chapter": "第一单元 第二章 认识细胞",
+  "knowledge_points": [
+    "动物细胞",
+    "流动的组织——血液"
+  ],
+  "difficulty": "medium",
+  "question_type": "mixed",
+  "ocr_text": "13. 显微镜与细胞...(1) 放大倍数____倍。(2) ①____；红色汁液在____。(3) 吞噬病菌的是____；血液属于____。(4) 成熟红细胞染色体____条。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T14:30:42.580Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T16:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "成熟红细胞无细胞核染色体为0，手写46批改改0",
+  "analysis": {
+    "answer": "(1) 400 (2) 细胞壁；⑤ (3) ⑨；组织 (4) 0",
+    "explanation": "放大倍数=目镜×物镜=10×40=400。①细胞壁有保护支持作用，西瓜红色汁液在⑤液泡中。⑨白细胞有吞噬病菌功能，血液属于组织。成熟红细胞无细胞核，染色体为0条（不是46条）。",
+    "key_concept": "细胞结构与血液组成",
+    "common_mistakes": [
+      "成熟红细胞染色体误写46",
+      "混淆组织与器官层次"
+    ],
+    "related_topics": [
+      "显微镜",
+      "植物细胞",
+      "血细胞"
+    ]
+  }
+}

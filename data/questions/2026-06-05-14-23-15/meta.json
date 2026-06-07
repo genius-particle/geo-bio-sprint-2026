@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-05-14-23-15",
+  "subject": "biology",
+  "chapter": "第二单元 第二章 动物的类群",
+  "knowledge_points": [
+    "无脊椎动物",
+    "两栖动物和爬行动物",
+    "鸟和哺乳动物"
+  ],
+  "difficulty": "medium",
+  "question_type": "mixed",
+  "ocr_text": "16. A-E五种动物...(1) B外骨骼防止____。(2) A成体用____气体交换。(3) E牙齿分化出____。(4) 体温恒定的是____和____。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T14:23:15.282Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T16:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "空位答案数与空位数一致，手写批改与推导一致",
+  "analysis": {
+    "answer": "(1) 体内水分蒸发 (2) 肺和皮肤 (3) 门齿和臼齿 (4) D；E",
+    "explanation": "B为节肢动物，外骨骼可防止体内水分蒸发。A青蛙成体水陆两栖，用肺和皮肤呼吸。E兔为哺乳动物，牙齿分化为门齿和臼齿。D鸟和E兔体温恒定。",
+    "key_concept": "无脊椎与脊椎动物特征",
+    "common_mistakes": [
+      "外骨骼作用漏答防止水分蒸发",
+      "兔的牙齿分化不完整"
+    ],
+    "related_topics": [
+      "节肢动物",
+      "两栖动物",
+      "哺乳动物"
+    ]
+  }
+}

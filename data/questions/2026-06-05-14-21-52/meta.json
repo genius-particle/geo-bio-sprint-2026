@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-05-14-21-52",
+  "subject": "biology",
+  "chapter": "第三单元 第二章 植物体内的物质与能量变化",
+  "knowledge_points": [
+    "光合作用",
+    "呼吸作用",
+    "开花和结果"
+  ],
+  "difficulty": "medium",
+  "question_type": "mixed",
+  "ocr_text": "14. 近年来北京市新建了许多水果、蔬菜采摘园...(1)适时通风增加____浓度促进光合作用；冬天大棚提供____。(2)封闭草莓大棚48小时CO2含量变化图：①ab段CO2下降因____作用；②bc段可适当降温因____。(3)疏花疏果使保留果实有充足____供应。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T14:21:52.118Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T16:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "第(3)空手写光照被批改改为有机物，印刷推导一致",
+  "analysis": {
+    "answer": "(1) 二氧化碳；适宜的温度 (2) ①光合 ②减小呼吸作用，防止有机物流失 (3) 有机物",
+    "explanation": "通风可补充CO2促进光合作用；大棚保温提供适宜温度。ab段白天光合作用强，CO2被消耗下降；bc段夜间无光合作用，适当降温可减弱呼吸作用、减少有机物消耗。疏花疏果是减少营养竞争，让保留的果实获得更多有机物，提高品质。",
+    "key_concept": "光合作用与呼吸作用的应用",
+    "common_mistakes": [
+      "疏花疏果误答光照",
+      "混淆光合与呼吸对CO2的影响"
+    ],
+    "related_topics": [
+      "大棚农业",
+      "有机物的运输",
+      "呼吸作用"
+    ]
+  }
+}

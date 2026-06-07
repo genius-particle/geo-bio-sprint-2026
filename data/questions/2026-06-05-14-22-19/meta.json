@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-05-14-22-19",
+  "subject": "biology",
+  "chapter": "第四单元 第四章 人体内物质的运输",
+  "knowledge_points": [
+    "流动的组织——血液",
+    "输送血液的泵——心脏",
+    "发生在肺内的气体交换"
+  ],
+  "difficulty": "hard",
+  "question_type": "mixed",
+  "ocr_text": "15. 地震伤员救治...(1) C为____；必须保证____系统畅通。(2) 下腔静脉出血流____血；止血靠____。(3) 饮尿液补充____和无机盐；有氧呼吸文字表达式____。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T14:22:19.299Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T16:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "C为右心房非右心室，手写批改与推导一致",
+  "analysis": {
+    "answer": "(1) 右心房；A (2) 静脉；血小板 (3) 水；有机物+氧气→二氧化碳+水+能量",
+    "explanation": "C为右心房（接上下腔静脉）。优先保证A呼吸系统畅通以供给氧气。下腔静脉流静脉血（回心血液）。血小板促进血液凝固。尿液可补充水分和无机盐。有氧呼吸：有机物与氧反应生成CO2、水和能量。",
+    "key_concept": "循环系统与呼吸系统的协调",
+    "common_mistakes": [
+      "C误写为右心室",
+      "有氧呼吸表达式写不完整"
+    ],
+    "related_topics": [
+      "心脏结构",
+      "血液成分",
+      "有氧呼吸"
+    ]
+  }
+}

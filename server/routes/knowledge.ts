@@ -74,7 +74,8 @@ export function knowledgeRoutes() {
     // GET /:slug — 读取页面
     const slugMatch = url.match(/^\/([^/?]+)(?:\?.*)?$/);
     if (method === 'GET' && slugMatch && !url.startsWith('/search')) {
-      const slug = slugMatch[1];
+      let slug: string;
+      try { slug = decodeURIComponent(slugMatch[1]); } catch { sendJson(res, { error: 'Invalid slug' }, 400); return; }
       const filename = slug.endsWith('.md') ? slug : `${slug}.md`;
       const page = readPage(ROOT, filename);
       if (!page) { sendJson(res, { error: 'Not found' }, 404); return; }

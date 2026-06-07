@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-05-14-26-02",
+  "subject": "biology",
+  "chapter": "第一单元 第三章 从细胞到生物体",
+  "knowledge_points": [
+    "单细胞生物"
+  ],
+  "difficulty": "easy",
+  "question_type": "choice",
+  "ocr_text": "10. 草履虫培养实验，能正确表示草履虫分布的是 ( )",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T14:26:02.713Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T16:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "草履虫趋氧聚集液面，手写选B错误，正确答案C",
+  "analysis": {
+    "answer": "C",
+    "explanation": "草履虫需氧气进行呼吸，培养液表面氧气最充足，因此草履虫多聚集在液面附近（图C）。不会均匀分布（B），也不会只在底部（A）。",
+    "key_concept": "单细胞生物的生活与环境",
+    "common_mistakes": [
+      "认为草履虫均匀分布",
+      "忽略草履虫需氧气的特点"
+    ],
+    "related_topics": [
+      "草履虫",
+      "单细胞生物",
+      "呼吸"
+    ]
+  }
+}

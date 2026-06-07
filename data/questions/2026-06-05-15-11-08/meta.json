@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-05-15-11-08",
+  "subject": "biology",
+  "chapter": "第一单元 第三章 从细胞到生物体",
+  "knowledge_points": [
+    "细胞通过分裂产生新细胞",
+    "动物体的结构层次"
+  ],
+  "difficulty": "medium",
+  "question_type": "mixed",
+  "ocr_text": "17. 细胞分裂与分化图...(1) A到D是____，染色体数目____；D到E-H是____。(2) 胃痛→____组织；胃收缩→____组织；胃出血→____组织。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T15:11:08.819Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T17:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "术语需完整写“细胞分裂”“细胞分化”",
+  "analysis": {
+    "answer": "(1) 细胞分裂；不变；细胞分化 (2) 神经；肌肉；结缔",
+    "explanation": "A→D细胞数目增加是细胞分裂，有丝分裂染色体数目不变。D→E/F/G/H形态功能不同是细胞分化形成不同组织。胃痛与神经组织有关，收缩舒张靠肌肉组织，出血涉及血液等结缔组织。",
+    "key_concept": "细胞分裂、分化与四大组织",
+    "common_mistakes": [
+      "分裂/分化漏写“细胞”二字",
+      "组织类型与功能对应错误"
+    ],
+    "related_topics": [
+      "有丝分裂",
+      "组织",
+      "器官"
+    ]
+  }
+}

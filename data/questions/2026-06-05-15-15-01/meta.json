@@ -1,0 +1,42 @@
+{
+  "id": "2026-06-05-15-15-01",
+  "subject": "biology",
+  "chapter": "第四单元 第六章 人体生命活动的调节",
+  "knowledge_points": [
+    "人体对外界环境的感知",
+    "神经调节的基本方式",
+    "消化和吸收",
+    "发生在肺内的气体交换"
+  ],
+  "difficulty": "hard",
+  "question_type": "mixed",
+  "ocr_text": "16. 一天作息与人体结构...(1)滤过②肾小囊 (2)听觉④；反射类型 (3)蛋白质⑦⑧ (4)关节 (5)吸气；动脉血",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T15:15:01.243Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T17:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "题目要求填简单或复杂，条件反射=复杂反射",
+  "analysis": {
+    "answer": "(1) 肾小囊；② (2) ④；复杂（复杂反射） (3) ⑦；⑧ (4) 关节 (5) 吸气；动脉血",
+    "explanation": "尿液形成：肾小球和②肾小囊内壁滤过。听觉在大脑皮层（④大脑）。铃声引起回教室需后天学习，属复杂反射（填“复杂”）。蛋白质在⑦胃初步分解，⑧小肠吸收。骨骼肌牵动骨绕关节活动。吸气时膈肌收缩，肺通气后血液变动脉血。",
+    "key_concept": "人体各系统结构与功能",
+    "common_mistakes": [
+      "反射类型填“条件”而非“复杂”",
+      "听觉部位与其他结构混淆"
+    ],
+    "related_topics": [
+      "泌尿",
+      "反射",
+      "消化",
+      "呼吸"
+    ]
+  }
+}

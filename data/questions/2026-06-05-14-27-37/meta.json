@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-05-14-27-37",
+  "subject": "biology",
+  "chapter": "第五单元 第一章 生态系统",
+  "knowledge_points": [
+    "生态系统的结构和功能",
+    "生物与环境的相互作用"
+  ],
+  "difficulty": "hard",
+  "question_type": "mixed",
+  "ocr_text": "16. 观音沟湿地公园食物网...(1) 食物链共____条。(2) 需补充____；图2中C对应____。(3) 能量由生产者通过____固定。(4) 毒素含量最高的是____；生态系统____有限度。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 2,
+  "notes": "",
+  "created_at": "2026-06-05T14:27:37.548Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T16:30:00.000Z",
+  "confidence": "medium",
+  "needs_manual_review": false,
+  "verification_notes": "食物链数由4修正为6；第(4)空需写完整“自我调节能力”",
+  "analysis": {
+    "answer": "(1) 6 (2) 乙（分解者）；鱼 (3) ①光合作用 (4) 鹭；自我调节能力",
+    "explanation": "食物网中从生产者到最高级消费者鹭共有6条食物链。完整生态系统需分解者（乙）。图2中C为第四营养级，对应鱼。生产者通过①光合作用固定太阳能。有害物质沿食物链富集，最高营养级鹭体内毒素最多。生态系统自我调节能力有限。",
+    "key_concept": "食物链与生态系统物质循环",
+    "common_mistakes": [
+      "食物链计数遗漏",
+      "自我调节能力漏写“能力”二字"
+    ],
+    "related_topics": [
+      "食物网",
+      "生物富集",
+      "分解者"
+    ]
+  }
+}
