@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-05-15-15-52",
+  "subject": "biology",
+  "chapter": "第七单元 第一章 生物的生殖和发育",
+  "knowledge_points": [
+    "植物的生殖",
+    "开花和结果"
+  ],
+  "difficulty": "medium",
+  "question_type": "mixed",
+  "ocr_text": "15. 草莓生殖...(1) 匍匐茎生殖属____生殖。(2) ②是____；③是____（果实/种子）。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T15:15:52.987Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T17:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "③为子房发育的果实（瘦果），手写种子被批改",
+  "analysis": {
+    "answer": "(1) 无性 (2) 子房；果实",
+    "explanation": "匍匐茎繁殖不经过两性生殖细胞结合，属无性生殖。②是子房。草莓表面③是由子房发育而来的小果实（瘦果），不是种子；我们吃的是花托，③填果实。",
+    "key_concept": "植物无性生殖与果实结构",
+    "common_mistakes": [
+      "把草莓表面小粒误认为种子",
+      "混淆子房与胚珠"
+    ],
+    "related_topics": [
+      "无性生殖",
+      "花的结构",
+      "果实发育"
+    ]
+  }
+}

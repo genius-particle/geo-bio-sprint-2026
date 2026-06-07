@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-05-15-10-23",
+  "subject": "biology",
+  "chapter": "第二单元 第二章 动物的类群",
+  "knowledge_points": [
+    "鱼",
+    "两栖动物和爬行动物",
+    "鸟和哺乳动物"
+  ],
+  "difficulty": "medium",
+  "question_type": "mixed",
+  "ocr_text": "13. 四种动物A鸟B鱼C蛙D犬...(1)呼吸方式 (2)脊椎/恒温 (3)鸟的特征 (4)由低等到高等排序",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T15:10:23.308Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T17:00:00.000Z",
+  "confidence": "medium",
+  "needs_manual_review": false,
+  "verification_notes": "第(4)空学生答BCAD与标准B→C→A→D一致，批改可能有误；第(1)空缺皮肤",
+  "analysis": {
+    "answer": "(1) 鳃；肺和皮肤 (2) 脊椎；AD (3) 流线；翼；羽 (4) B、C、A、D",
+    "explanation": "B鱼用鳃呼吸，C青蛙成体用肺和皮肤呼吸。四种均有脊柱属脊椎动物，A鸟D犬为恒温动物。鸟呈流线型，前肢变翼，体表覆羽。进化顺序：鱼类→两栖类→鸟类→哺乳类，即B→C→A→D。",
+    "key_concept": "脊椎动物类群与进化",
+    "common_mistakes": [
+      "青蛙呼吸漏答皮肤",
+      "进化顺序混淆鸟与哺乳的先后"
+    ],
+    "related_topics": [
+      "呼吸",
+      "恒温动物",
+      "生物进化"
+    ]
+  }
+}

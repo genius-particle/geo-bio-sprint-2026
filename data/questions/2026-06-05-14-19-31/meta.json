@@ -1,0 +1,32 @@
+{
+  "id": "2026-06-05-14-19-31",
+  "subject": "biology",
+  "chapter": "第四单元 第七章 健康地生活",
+  "knowledge_points": ["传染病及其预防", "传染源与病原体"],
+  "difficulty": "easy",
+  "question_type": "choice",
+  "ocr_text": "1. 下列各项中属于传染源的是\nA. 肝炎病毒\nB. 蛔虫\nC. 结核分枝杆菌\nD. 患狂犬病的狗",
+  "ocr_quality": "full",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T14:19:31.920Z",
+  "analyzed_at": "2026-06-05T16:00:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "手写批注选D与印刷推导一致；A/B/C均为病原体非传染源，两轮校验通过",
+  "analysis": {
+    "answer": "D",
+    "explanation": "传染源是指能够散播病原体的人或动物。患狂犬病的狗是感染了狂犬病毒并能传播病原体的动物，属于传染源。A肝炎病毒、B蛔虫、C结核分枝杆菌都是病原体本身，不是传染源。记住：病原体是致病的微生物或寄生虫，传染源是携带并传播病原体的人或动物。",
+    "key_concept": "传染源与病原体的区别",
+    "common_mistakes": [
+      "把病原体（病毒、细菌、寄生虫）误当作传染源",
+      "混淆传染源、传播途径和易感人群三个环节"
+    ],
+    "related_topics": ["传染病及其预防", "病原体", "传播途径"]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-05-14-36-38",
+  "subject": "biology",
+  "chapter": "第三单元 第二章 植物体内的物质与能量变化",
+  "knowledge_points": [
+    "光合作用",
+    "呼吸作用",
+    "植物的生殖"
+  ],
+  "difficulty": "hard",
+  "question_type": "mixed",
+  "ocr_text": "13. 马铃薯块茎繁殖...(1) 无性生殖中____繁殖。(2) 结构层次____。(3) 属于____植物。(4) 块茎含____组织；营养由____合成。(5) 细胞模型为____细胞。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 2,
+  "notes": "",
+  "created_at": "2026-06-05T14:36:38.324Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T17:00:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "问一个马铃薯（块茎）层次到器官为止，不含个体",
+  "analysis": {
+    "answer": "(1) 营养 (2) 细胞→组织→器官 (3) 被子 (4) 薄壁；B (5) 叶肉",
+    "explanation": "马铃薯用块茎繁殖属营养繁殖。问“一个马铃薯（块茎）”的结构层次到器官为止：细胞→组织→器官。马铃薯有花有果实属被子植物。块茎储存淀粉含薄壁组织，有机物由B光合作用合成。模型含叶绿体，为叶肉细胞。",
+    "key_concept": "马铃薯的生殖与生理",
+    "common_mistakes": [
+      "结构层次多写“个体”",
+      "混淆块茎细胞与叶肉细胞"
+    ],
+    "related_topics": [
+      "营养繁殖",
+      "三大生理作用",
+      "植物分类"
+    ]
+  }
+}

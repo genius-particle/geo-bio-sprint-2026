@@ -251,14 +251,16 @@ export default function App() {
       </div>
 
       {/* Bottom Tab Bar */}
-      <div className="flex border-t border-gray-200 bg-white safe-area-bottom">
-        {TABS.map(tab => (
-          <button key={tab.id} onClick={() => navigate(tab.id)}
-            className={`flex-1 py-3 text-center ${view === tab.id ? 'text-green-600' : 'text-gray-400'}`}>
-            <div className="text-xl">{tab.icon}</div>
-            <div className="text-xs mt-0.5">{tab.label}</div>
-          </button>
-        ))}
+      <div className="border-t border-gray-200 bg-white safe-area-bottom">
+        <div className="flex max-w-5xl mx-auto w-full">
+          {TABS.map(tab => (
+            <button key={tab.id} onClick={() => navigate(tab.id)}
+              className={`flex-1 py-3 text-center ${view === tab.id ? 'text-green-600' : 'text-gray-400'}`}>
+              <div className="text-xl md:text-2xl">{tab.icon}</div>
+              <div className="text-xs md:text-sm mt-0.5">{tab.label}</div>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

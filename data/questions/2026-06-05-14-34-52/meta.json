@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-05-14-34-52",
+  "subject": "biology",
+  "chapter": "第七单元 第二章 生物的遗传与变异",
+  "knowledge_points": [
+    "基因在亲子代间的传递",
+    "生物的变异"
+  ],
+  "difficulty": "hard",
+  "question_type": "mixed",
+  "ocr_text": "17. 水稻太空诱变与杂交...(1) 生殖方式____；卵细胞染色体____；太空诱变改变____。(2) 高秆矮秆是____；____组判断矮秆隐性。(3) 甲组子代基因型____。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 2,
+  "notes": "",
+  "created_at": "2026-06-05T14:34:52.970Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T17:00:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "甲组HH×hh子代仅Hh，手写批改一致",
+  "analysis": {
+    "answer": "(1) 有性生殖；12；基因 (2) 相对性状；甲 (3) Hh",
+    "explanation": "水稻通过种子繁殖属有性生殖，生殖细胞染色体为体细胞一半即12条。太空诱变改变的是基因。高秆与矮秆是相对性状，甲组纯合高×纯合矮→全高秆，说明矮秆隐性。甲组子代基因型均为Hh。",
+    "key_concept": "遗传基本规律与变异",
+    "common_mistakes": [
+      "诱变答遗传物质而非基因",
+      "子代基因型多写HH或Hh"
+    ],
+    "related_topics": [
+      "有性生殖",
+      "相对性状",
+      "显性隐性"
+    ]
+  }
+}

@@ -63,7 +63,8 @@ export async function fetchKnowledge() {
 }
 
 export async function fetchKnowledgePage(slug: string) {
-  const res = await fetch(`${BASE}/knowledge/${slug}`);
+  const res = await fetch(`${BASE}/knowledge/${encodeURIComponent(slug)}`);
+  if (!res.ok) return null;
   return res.json();
 }
 

@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-05-14-35-36",
+  "subject": "biology",
+  "chapter": "第二单元 第二章 动物的类群",
+  "knowledge_points": [
+    "无脊椎动物"
+  ],
+  "difficulty": "easy",
+  "question_type": "choice",
+  "ocr_text": "4. 地球上种类最多、数量最大、分布最广的动物类群是 ( )\nA. 鱼类 B. 爬行类 C. 哺乳动物 D. 节肢动物",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T14:35:36.943Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T17:00:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "手写选C批改改D",
+  "analysis": {
+    "answer": "D",
+    "explanation": "节肢动物是动物界中种类最多、数量最大、分布最广的类群，约占动物种数的2/3以上，包括昆虫、蜘蛛、虾蟹等。",
+    "key_concept": "节肢动物的主要特征",
+    "common_mistakes": [
+      "误选哺乳动物为最多类群",
+      "忽略昆虫属于节肢动物"
+    ],
+    "related_topics": [
+      "无脊椎动物",
+      "节肢动物"
+    ]
+  }
+}

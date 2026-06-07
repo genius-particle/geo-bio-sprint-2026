@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-05-14-31-27",
+  "subject": "biology",
+  "chapter": "第四单元 第七章 健康地生活",
+  "knowledge_points": [
+    "合理营养与食品安全"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "10. 宁宁同学在学习了“食品保存”的知识后，做了如下总结，其中错误的是\nA. 食品腐败常常是由气温过高引起的\nB. 超过保质期的食品建议不要再食用\nC. 食品的保存也会带来食品安全风险\nD. 蔬菜和水果的保鲜要抑制呼吸作用",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-05T14:31:27.299Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-05T17:00:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "腐败主因是微生物而非气温本身，手写选D错误",
+  "analysis": {
+    "answer": "A",
+    "explanation": "本题选错误的说法。食品腐败主要是微生物生长繁殖引起的，高温只是加速腐败的条件，不能说“常常是由气温过高引起”。B、C、D均正确：过期食品不宜吃；保存方法不当也有安全风险；果蔬保鲜需抑制呼吸作用减少有机物消耗。",
+    "key_concept": "食品腐败与保存原理",
+    "common_mistakes": [
+      "把腐败原因简单归结为温度过高",
+      "选错“找错误”类题目的答案"
+    ],
+    "related_topics": [
+      "微生物",
+      "呼吸作用",
+      "食品安全"
+    ]
+  }
+}
