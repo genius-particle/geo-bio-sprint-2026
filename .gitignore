@@ -8,6 +8,8 @@ dist/
 data/questions/*/image*.jpg
 data/practice/
 data/reports/
+data/books/.ocr-cache/
+data/books-raw/
 
 # OS files
 .DS_Store
@@ -17,6 +19,9 @@ data/reports/
 .idea/
 *.swp
 *.swo
+
+# Tool runtime state
+.omc/
 
 # Logs
 *.log
