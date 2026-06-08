@@ -116,29 +116,47 @@ frontmatter 字段说明:
 
 ```json
 {
-  "id": "2026-05-31-14-30-00",
+  "id": "2026-06-09-10-30-00",
+  "title": "传染源与病原体 - 快问快答",
+  "mode": "knowledge",                    // knowledge | mistake
+  "subject": "biology",                   // geography | biology
+  "source_slugs": ["biology-传染源与病原体"],  // 关联 wiki 页面（knowledge 模式）
   "questions": [
     {
       "id": "q-001",
-      "source_mistake_id": "2026-05-31-14-30-00",
-      "subject": "geography",
-      "chapter": "中国的自然资源",
-      "knowledge_points": [],
+      "source_mistake_id": "2026-05-31-14-30-00",  // 可选，mistake 模式关联错题
+      "subject": "biology",
+      "chapter": "第四单元 第七章 健康地生活",
+      "knowledge_points": ["传染源", "病原体"],
       "difficulty": "medium",
-      "question_text": "以下哪个属于可再生资源？",
+      "question_type": "choice",           // choice | judge
+      "question_text": "下列属于传染源的是？",
       "options": [
-        { "label": "A", "text": "煤炭" },
-        { "label": "B", "text": "太阳能" }
+        { "label": "A", "text": "肝炎病毒" },
+        { "label": "B", "text": "结核分枝杆菌" },
+        { "label": "C", "text": "患狂犬病的狗" },
+        { "label": "D", "text": "蛔虫" }
       ],
-      "correct_answer": "B",
-      "explanation": "太阳能是可再生资源...",
-      "practice_status": "unattempted",  // unattempted | correct | wrong | skipped
+      "correct_answer": "C",
+      "explanation": "传染源是能够散播病原体的人或动物...",
+      "practice_status": "unattempted",    // unattempted | correct | wrong | skipped
       "user_answer": null
     }
   ],
-  "created_at": "2026-05-31T14:30:00.000Z"
+  "created_at": "2026-06-09T10:30:00.000Z"
 }
 ```
+
+字段说明:
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| title | string | 显示标题（旧数据兼容：缺失时显示"练习"）|
+| mode | enum | knowledge（知识点出题）或 mistake（错题变式）（旧数据兼容：缺失当 mistake）|
+| subject | enum | geography 或 biology |
+| source_slugs | string[] | 关联 wiki 页面 slug（knowledge 模式）|
+| questions[].question_type | enum | choice（选择题）或 judge（判断题）|
+| questions[].source_mistake_id | string? | 可选，关联错题 ID（mistake 模式）|
 
 ## chapters 配置 (data/chapters.json)
 
