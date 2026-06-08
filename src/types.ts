@@ -7,6 +7,7 @@ export type QuestionType = 'choice' | 'fill' | 'map' | 'judge' | 'essay' | 'mixe
 export type Confidence = 'high' | 'medium' | 'low';
 export type MistakeType = 'knowledge_gap' | 'careless' | 'misunderstood' | 'other';
 export type PracticeStatus = 'unattempted' | 'correct' | 'wrong' | 'skipped';
+export type PracticeMode = 'mistake' | 'knowledge';
 
 export type ViewMode = 'home' | 'capture' | 'detail' | 'mistakes' | 'knowledge' | 'practice';
 
@@ -71,21 +72,26 @@ export interface CourseLink {
 
 export interface PracticeQuestion {
   id: string;
-  source_mistake_id: string;
+  source_mistake_id?: string;
   subject: Subject;
   chapter: string;
   knowledge_points: string[];
   difficulty: Difficulty;
+  question_type: 'choice' | 'judge';
   question_text: string;
   options?: { label: string; text: string }[];
   correct_answer: string;
   explanation: string;
   practice_status: PracticeStatus;
-  user_answer?: string;
+  user_answer?: string | null;
 }
 
 export interface PracticeSession {
   id: string;
+  title: string;
+  mode: PracticeMode;
+  subject: Subject;
+  source_slugs?: string[];
   questions: PracticeQuestion[];
   created_at: string;
 }

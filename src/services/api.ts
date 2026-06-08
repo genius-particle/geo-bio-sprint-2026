@@ -84,3 +84,10 @@ export async function createPractice(questions: any[]) {
   });
   return res.json();
 }
+
+export async function updatePractice(id: string, data: any) {
+  const res = await fetch(`${BASE}/practice/${id}`, {
+    method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data),
+  });
+  return res.json();
+}

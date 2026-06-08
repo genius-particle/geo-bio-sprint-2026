@@ -16,9 +16,16 @@ export function practiceRoutes() {
   return async (req: IncomingMessage, res: ServerResponse, next: () => void) => {
     const url = req.url || '', method = req.method || 'GET';
 
-    if (method === 'GET' && (url === '/' || url === '')) {
+    if (method === 'GET' && (url === '/' || url === '' || url.startsWith('/?'))) {
       const files = listFiles('practice', '.json');
-      sendJson(res, files.map(f => readJson<any>(`practice/${f}`)).filter(Boolean)); return;
+      let sessions = files.map(f => readJson<any>(`practice/${f}`)).filter(Boolean);
+      // 支持按学科和模式过滤
+      const params = new URL(url, 'http://localhost').searchParams;
+      const subjectFilter = params.get('subject');
+      const modeFilter = params.get('mode');
+      if (subjectFilter) sessions = sessions.filter(s => s.subject === subjectFilter);
+      if (modeFilter) sessions = sessions.filter(s => s.mode === modeFilter);
+      sendJson(res, sessions); return;
     }
 
     if (method === 'POST' && (url === '/' || url === '')) {
