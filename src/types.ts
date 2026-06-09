@@ -51,9 +51,11 @@ export interface MistakeRecord {
   next_review_at: string;
   is_mastered: boolean;
   user_notes: string;
+  question?: Question;
 }
 
 export interface KnowledgeEntry {
+  slug: string;
   title: string;
   tags: string[];
   subject: Subject;

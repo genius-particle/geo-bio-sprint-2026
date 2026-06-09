@@ -7,13 +7,7 @@ import QuestionDetailView from './components/QuestionDetailView';
 import MistakeBookView from './components/MistakeBookView';
 import KnowledgeBaseView from './components/KnowledgeBaseView';
 import PracticeView from './components/PracticeView';
-
-const TABS: { id: ViewMode; icon: string; label: string }[] = [
-  { id: 'home', icon: '🏠', label: '首页' },
-  { id: 'mistakes', icon: '📋', label: '错题本' },
-  { id: 'knowledge', icon: '📚', label: '知识库' },
-  { id: 'practice', icon: '✏️', label: '练习' },
-];
+import TabBar, { SideNav } from './components/TabBar';
 
 /**
  * 从 base64 图片中解析 EXIF Orientation 值
@@ -232,35 +226,34 @@ export default function App() {
     navigate('detail', true);
   };
 
+  const tabViews: ViewMode[] = ['home', 'mistakes', 'knowledge', 'practice'];
+  const showTabBar = tabViews.includes(view);
+
+  const triggerCapture = () => fileInputRef.current?.click();
+
   return (
-    <div className="h-screen flex flex-col bg-gray-50">
+    <div className="h-screen flex flex-col md:flex-row bg-white">
       <input type="file" ref={fileInputRef} className="hidden" accept="image/*" onChange={handleImageUpload} capture="environment" />
-      
+
       {croppingImage && (
         <ImageCropper imageSrc={croppingImage} onConfirm={handleCropConfirm} onCancel={() => setCroppingImage(null)} />
       )}
 
-      {/* Main Content */}
-      <div className="flex-1 overflow-auto">
-        {view === 'home' && <DashboardView onCapture={() => fileInputRef.current?.click()} onSelectQuestion={openQuestion} refreshKey={refreshKey} />}
-        {view === 'capture' && croppedImages.length > 0 && <QuestionCaptureView imageBase64List={croppedImages} onAddImage={() => fileInputRef.current?.click()} onRemoveImage={handleRemoveImage} onSave={handleSave} onCancel={() => navigate('home')} />}
-        {view === 'detail' && selectedQuestionId && <QuestionDetailView questionId={selectedQuestionId} onBack={() => history.back()} />}
-        {view === 'mistakes' && <MistakeBookView onSelectQuestion={openQuestion} />}
-        {view === 'knowledge' && <KnowledgeBaseView />}
-        {view === 'practice' && <PracticeView />}
-      </div>
+      {showTabBar && (
+        <SideNav active={view} onChange={navigate} onCapture={triggerCapture} />
+      )}
 
-      {/* Bottom Tab Bar */}
-      <div className="border-t border-gray-200 bg-white safe-area-bottom">
-        <div className="flex max-w-5xl mx-auto w-full">
-          {TABS.map(tab => (
-            <button key={tab.id} onClick={() => navigate(tab.id)}
-              className={`flex-1 py-3 text-center ${view === tab.id ? 'text-green-600' : 'text-gray-400'}`}>
-              <div className="text-xl md:text-2xl">{tab.icon}</div>
-              <div className="text-xs md:text-sm mt-0.5">{tab.label}</div>
-            </button>
-          ))}
+      <div className="flex-1 flex flex-col min-w-0 min-h-0">
+        <div className="flex-1 overflow-auto flex flex-col min-h-0">
+          {view === 'home' && <DashboardView onCapture={triggerCapture} onSelectQuestion={openQuestion} refreshKey={refreshKey} />}
+          {view === 'capture' && croppedImages.length > 0 && <QuestionCaptureView imageBase64List={croppedImages} onAddImage={triggerCapture} onRemoveImage={handleRemoveImage} onSave={handleSave} onCancel={() => navigate('home')} />}
+          {view === 'detail' && selectedQuestionId && <QuestionDetailView questionId={selectedQuestionId} onBack={() => history.back()} />}
+          {view === 'mistakes' && <MistakeBookView onSelectQuestion={openQuestion} />}
+          {view === 'knowledge' && <KnowledgeBaseView />}
+          {view === 'practice' && <PracticeView />}
         </div>
+
+        {showTabBar && <TabBar active={view} onChange={navigate} />}
       </div>
     </div>
   );

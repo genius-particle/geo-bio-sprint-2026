@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { fetchQuestion } from '../services/api';
 import type { Question } from '../types';
-import { SUBJECT_LABELS, QUESTION_TYPE_LABELS, DIFFICULTY_LABELS } from '../types';
-import { PageContainer } from './Common';
+import { QUESTION_TYPE_LABELS, DIFFICULTY_LABELS } from '../types';
+import { PageContainer, BackLink, PageHeader, StatusBadge, SubjectLabel, SectionLabel, ParseBlock } from './Common';
 
 export default function QuestionDetailView({ questionId, onBack }: {
   questionId: string; onBack: () => void;
@@ -21,7 +21,7 @@ export default function QuestionDetailView({ questionId, onBack }: {
     }
   }, [zoomIdx]);
 
-  if (!q) return <div className="flex items-center justify-center h-full text-gray-400">加载中...</div>;
+  if (!q) return <div className="flex items-center justify-center h-full text-muted font-light">加载中…</div>;
 
   // 确定图片数量：新数据用 image_count，旧数据（无此字段）假设 1 张旧格式图
   const imageCount = q.image_count;
@@ -29,33 +29,23 @@ export default function QuestionDetailView({ questionId, onBack }: {
   const totalImages = imageCount != null ? imageCount : (isOldFormat ? 1 : 0);
 
   return (
-    <PageContainer>
-      <div className="flex items-center justify-between mb-4">
-        <button onClick={onBack} className="text-gray-400 md:text-base">← 返回</button>
-        <h2 className="font-bold text-gray-700 md:text-xl">题目详情</h2>
-        <div className="w-12"></div>
+    <PageContainer className="overflow-auto">
+      <BackLink onClick={onBack} />
+      <PageHeader title="题目详情" />
+
+      <div className="flex flex-wrap mb-6">
+        <StatusBadge variant="ok">{q.analysis_status === 'pending' ? '待分析' : '已分析'}</StatusBadge>
+        <SubjectLabel subject={q.subject} />
+        {q.is_mistake && <StatusBadge variant="err">错题</StatusBadge>}
+        {totalImages > 1 && <StatusBadge>{totalImages} 张图</StatusBadge>}
+        {q.confidence === 'low' && <StatusBadge variant="warn">低置信度</StatusBadge>}
+        {q.confidence === 'medium' && <StatusBadge variant="warn">需关注</StatusBadge>}
       </div>
 
-      {/* Status Badge */}
-      <div className="flex flex-wrap gap-2 mb-4">
-        <span className={`px-3 py-1 rounded-full text-xs md:text-sm font-medium ${q.analysis_status === 'pending' ? 'bg-yellow-100 text-yellow-700' : 'bg-green-100 text-green-700'}`}>
-          {q.analysis_status === 'pending' ? '⏳ 待分析' : '✅ 已分析'}
-        </span>
-        <span className={`px-3 py-1 rounded-full text-xs md:text-sm font-medium ${q.subject === 'geography' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}`}>
-          {SUBJECT_LABELS[q.subject]}
-        </span>
-        {q.is_mistake && <span className="px-3 py-1 rounded-full text-xs md:text-sm font-medium bg-red-100 text-red-700">错题</span>}
-        {totalImages > 1 && <span className="px-3 py-1 rounded-full text-xs md:text-sm font-medium bg-purple-100 text-purple-700">{totalImages} 张图</span>}
-        {q.confidence === 'low' && <span className="px-3 py-1 rounded-full text-xs md:text-sm font-medium bg-red-100 text-red-700">低置信度</span>}
-        {q.confidence === 'medium' && <span className="px-3 py-1 rounded-full text-xs md:text-sm font-medium bg-yellow-100 text-yellow-700">需关注</span>}
-      </div>
-
-      {/* 主内容：Pad 双栏，手机单列 */}
-      <div className="md:grid md:grid-cols-2 md:gap-6 md:items-start">
-        {/* 左栏：图片 + 元数据 */}
-        <div className="space-y-4 mb-4 md:mb-0">
+      <div className="md:grid md:grid-cols-2 md:gap-8 md:items-start space-y-8 md:space-y-0">
+        <div className="space-y-6">
           {totalImages > 0 && (
-            <div className="bg-white rounded-xl p-2 shadow-sm">
+            <div className="bg-[#E2E8F0] rounded-xl p-1">
               <div className="flex flex-col gap-2">
                 {Array.from({ length: totalImages }, (_, i) => i + 1).map(idx => (
                   <img key={idx}
@@ -63,7 +53,7 @@ export default function QuestionDetailView({ questionId, onBack }: {
                       ? `/api/questions/${q.id}/image/${idx}`
                       : `/api/questions/${q.id}/image`}
                     alt={`题目图 ${idx}`}
-                    className="w-full rounded-lg cursor-pointer max-h-80 md:max-h-[70vh] object-contain"
+                    className="w-full rounded-lg cursor-pointer max-h-80 md:max-h-[75vh] object-contain"
                     onClick={() => setZoomIdx(idx)}
                   />
                 ))}
@@ -71,51 +61,49 @@ export default function QuestionDetailView({ questionId, onBack }: {
             </div>
           )}
 
-          <div className="bg-white rounded-xl p-4 shadow-sm space-y-2">
-            <div className="flex justify-between text-sm md:text-base"><span className="text-gray-400">章节</span><span className="text-gray-700">{q.chapter || '未分类'}</span></div>
-            <div className="flex justify-between text-sm md:text-base"><span className="text-gray-400">题型</span><span className="text-gray-700">{QUESTION_TYPE_LABELS[q.question_type]}</span></div>
-            <div className="flex justify-between text-sm md:text-base"><span className="text-gray-400">难度</span><span className="text-gray-700">{DIFFICULTY_LABELS[q.difficulty]}</span></div>
-            {q.source_detail && <div className="flex justify-between text-sm md:text-base"><span className="text-gray-400">来源</span><span className="text-gray-700">{q.source_detail}</span></div>}
+          <div className="space-y-3 py-4 border-t border-[#E2E8F0] text-sm md:border-t-0 md:pt-0">
+            <div className="flex justify-between"><span className="text-muted">章节</span><span>{q.chapter || '未分类'}</span></div>
+            <div className="flex justify-between"><span className="text-muted">题型</span><span>{QUESTION_TYPE_LABELS[q.question_type]}</span></div>
+            <div className="flex justify-between"><span className="text-muted">难度</span><span>{DIFFICULTY_LABELS[q.difficulty]}</span></div>
+            {q.source_detail && <div className="flex justify-between"><span className="text-muted">来源</span><span>{q.source_detail}</span></div>}
           </div>
         </div>
 
-        {/* 右栏：文字 + 解析 */}
-        <div className="space-y-4">
+        <div className="space-y-8">
           {q.ocr_text && (
-            <div className="bg-white rounded-xl p-4 shadow-sm">
-              <h3 className="text-sm md:text-base font-semibold text-gray-500 mb-2">题目文字</h3>
-              <p className="text-gray-700 text-sm md:text-base whitespace-pre-wrap">{q.ocr_text}</p>
+            <div>
+              <SectionLabel>题目文字</SectionLabel>
+              <p className="text-sm font-light whitespace-pre-wrap leading-relaxed">{q.ocr_text}</p>
             </div>
           )}
 
           {q.analysis && (
-            <div className="bg-white rounded-xl p-4 shadow-sm">
-              <h3 className="text-sm md:text-base font-semibold text-gray-500 mb-2">📖 解析</h3>
-              <div className="text-gray-700 text-sm md:text-base space-y-3">
-                <div><strong>答案：</strong>{q.analysis.answer}</div>
-                <div><strong>解析：</strong><div className="mt-1 whitespace-pre-wrap">{q.analysis.explanation}</div></div>
+            <div>
+              <SectionLabel>解析</SectionLabel>
+              <ParseBlock>
+                <div className="font-semibold mb-2">答案：{q.analysis.answer}</div>
+                <div className="whitespace-pre-wrap">{q.analysis.explanation}</div>
                 {q.analysis.common_mistakes?.length > 0 && (
-                  <div><strong>常见错误：</strong><ul className="list-disc ml-4 mt-1">{q.analysis.common_mistakes.map((m, i) => <li key={i}>{m}</li>)}</ul></div>
+                  <div className="mt-3">
+                    <span className="font-semibold text-muted">常见错误</span>
+                    <ul className="list-disc ml-4 mt-1 space-y-1">{q.analysis.common_mistakes.map((m, i) => <li key={i}>{m}</li>)}</ul>
+                  </div>
                 )}
-              </div>
+              </ParseBlock>
             </div>
           )}
 
           {q.verification_notes && (
-            <div className={`rounded-xl p-4 shadow-sm ${q.confidence === 'low' ? 'bg-red-50' : 'bg-yellow-50'}`}>
-              <h3 className={`text-sm md:text-base font-semibold mb-1 ${q.confidence === 'low' ? 'text-red-600' : 'text-yellow-600'}`}>
-                {q.confidence === 'low' ? '⚠️ 校验提示' : 'ℹ️ 校验修正'}
-              </h3>
-              <p className={`text-sm md:text-base whitespace-pre-wrap ${q.confidence === 'low' ? 'text-red-800' : 'text-yellow-800'}`}>
-                {q.verification_notes}
-              </p>
+            <div className="border-l-2 border-[#D4D4D4] pl-4">
+              <SectionLabel>{q.confidence === 'low' ? '校验提示' : '校验修正'}</SectionLabel>
+              <p className="text-sm font-light whitespace-pre-wrap text-muted">{q.verification_notes}</p>
             </div>
           )}
 
           {q.notes && (
-            <div className="bg-yellow-50 rounded-xl p-4 shadow-sm">
-              <h3 className="text-sm md:text-base font-semibold text-yellow-600 mb-1">📝 备注</h3>
-              <p className="text-yellow-800 text-sm md:text-base">{q.notes}</p>
+            <div>
+              <SectionLabel>备注</SectionLabel>
+              <p className="text-sm font-light">{q.notes}</p>
             </div>
           )}
         </div>
