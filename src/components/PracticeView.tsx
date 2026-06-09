@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { fetchPractice, updatePractice } from '../services/api';
 import { SUBJECT_LABELS, type PracticeSession, type Subject } from '../types';
-import { PageContainer, EmptyState } from './Common';
+import { PageContainer, EmptyState, PageHeader, SegmentedControl, BackLink, SubjectLabel, ListGrid } from './Common';
 
 type SubView = 'home' | 'quiz' | 'result';
 type SubjectFilter = 'all' | 'geography' | 'biology';
@@ -114,71 +114,62 @@ export default function PracticeView() {
     return <ResultView session={activeSession} onBack={goHome} />;
   }
 
-  // home
   return (
-    <PageContainer>
-      <h1 className="text-xl md:text-2xl font-bold text-gray-700 mb-4">✏️ 练习</h1>
-
-      <div className="flex gap-2 mb-4">
-        {(['all', 'geography', 'biology'] as const).map(s => (
-          <button key={s} onClick={() => setSubjectFilter(s)}
-            className={`px-4 py-1.5 rounded-full text-sm md:text-base font-medium ${subjectFilter === s ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-500'}`}>
-            {s === 'all' ? '全部' : SUBJECT_LABELS[s]}
-          </button>
-        ))}
-      </div>
+    <PageContainer className="overflow-auto">
+      <PageHeader title="练习" />
+      <SegmentedControl<SubjectFilter>
+        options={[
+          { id: 'all', label: '全部' },
+          { id: 'geography', label: '地理' },
+          { id: 'biology', label: '生物' },
+        ]}
+        value={subjectFilter}
+        onChange={setSubjectFilter}
+      />
 
       {filtered.length === 0 ? (
-        <EmptyState
-          icon={<span className="text-4xl">📝</span>}
-          message="暂无练习题"
-          subMessage="运行 /generate-practice 生成练习题"
-        />
+        <EmptyState message="暂无练习题" subMessage="运行 /generate-practice 生成练习题" />
       ) : (
-        <div className="space-y-3 md:grid md:grid-cols-2 md:gap-3 md:space-y-0">
-          {filtered.map(s => {
-            const { total, done } = getProgress(s);
-            const completed = isCompleted(s);
-            const accuracy = getAccuracy(s);
-            return (
-              <div key={s.id} className="bg-white rounded-xl p-4 shadow-sm">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className={`text-xs font-bold px-2 py-0.5 rounded ${s.subject === 'geography' ? 'bg-blue-50 text-blue-600' : 'bg-green-50 text-green-600'}`}>
-                    {SUBJECT_LABELS[s.subject as Subject] || '练习'}
-                  </span>
-                  {s.mode === 'knowledge' && (
-                    <span className="text-xs bg-purple-50 text-purple-600 font-bold px-2 py-0.5 rounded">知识点</span>
-                  )}
-                </div>
-                <div className="font-medium text-gray-700 text-sm md:text-base mb-1">{s.title}</div>
-                <div className="text-xs text-gray-400 mb-3">{new Date(s.created_at).toLocaleDateString()} · {total} 题</div>
-
-                {total > 0 && (
-                  <div className="w-full bg-gray-100 rounded-full h-1.5 mb-3">
-                    <div className={`h-1.5 rounded-full transition-all ${completed ? 'bg-green-400' : 'bg-blue-400'}`}
-                      style={{ width: `${(done / total) * 100}%` }} />
-                  </div>
-                )}
-
-                {completed ? (
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-bold text-green-600">正确率 {accuracy}%</span>
-                    <button onClick={() => viewResult(s)} className="text-sm text-gray-500 hover:text-gray-700">查看结果 →</button>
-                  </div>
-                ) : done > 0 ? (
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-400">进度 {done}/{total}</span>
-                    <button onClick={() => startQuiz(s)} className="text-sm text-blue-500 hover:text-blue-700 font-medium">继续练习 →</button>
-                  </div>
-                ) : (
-                  <button onClick={() => startQuiz(s)} className="w-full py-2 bg-blue-500 text-white rounded-lg text-sm font-medium active:bg-blue-600">
-                    开始练习
-                  </button>
-                )}
+        <ListGrid>
+        {filtered.map(s => {
+          const { total, done } = getProgress(s);
+          const completed = isCompleted(s);
+          const accuracy = getAccuracy(s);
+          return (
+            <div key={s.id} className="p-4 bg-[#F8FAFC] rounded-[14px]">
+              <div className="flex items-center gap-2 mb-2">
+                <SubjectLabel subject={s.subject as Subject} />
+                {s.mode === 'knowledge' && <span className="text-[10px] text-muted font-semibold">知识点</span>}
               </div>
-            );
-          })}
-        </div>
+              <div className="font-semibold text-sm mb-1">{s.title}</div>
+              <div className="text-xs text-muted mb-3">{new Date(s.created_at).toLocaleDateString()} · {total} 题</div>
+
+              {total > 0 && (
+                <div className="w-full bg-[#E2E8F0] h-2 rounded mb-3 overflow-hidden">
+                  <div className="h-full bg-brand rounded transition-all"
+                    style={{ width: `${(done / total) * 100}%` }} />
+                </div>
+              )}
+
+              {completed ? (
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold text-brand">正确率 {accuracy}%</span>
+                  <button onClick={() => viewResult(s)} className="text-sm font-semibold text-muted active:opacity-60">查看结果</button>
+                </div>
+              ) : done > 0 ? (
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-muted">进度 {done}/{total}</span>
+                  <button onClick={() => startQuiz(s)} className="text-sm font-semibold text-brand active:opacity-60">继续练习</button>
+                </div>
+              ) : (
+                <button onClick={() => startQuiz(s)} className="text-sm font-semibold text-brand active:opacity-60">
+                  开始练习 →
+                </button>
+              )}
+            </div>
+          );
+        })}
+        </ListGrid>
       )}
     </PageContainer>
   );
@@ -204,44 +195,39 @@ function QuizView({ session, idx, answered, onAnswer, onNext, onBack }: {
   const options = q.question_type === 'judge' ? judgeOptions : (q.options || []);
 
   return (
-    <PageContainer>
-      {/* 顶部栏 */}
-      <div className="flex items-center justify-between mb-4">
-        <button onClick={onBack} className="text-gray-400 text-sm">← 返回</button>
-        <span className="text-sm text-gray-500 font-medium">{idx + 1} / {session.questions.length}</span>
-        <span className={`text-xs font-bold px-2 py-0.5 rounded ${session.subject === 'geography' ? 'bg-blue-50 text-blue-600' : 'bg-green-50 text-green-600'}`}>
-          {SUBJECT_LABELS[session.subject as Subject] || ''}
-        </span>
+    <PageContainer className="overflow-auto">
+      <div className="md:max-w-3xl md:mx-auto">
+      <BackLink onClick={onBack} />
+      <div className="flex items-center justify-between mb-6">
+        <span className="text-xs md:text-sm text-muted font-semibold">{idx + 1} / {session.questions.length}</span>
+        <SubjectLabel subject={session.subject as Subject} />
       </div>
 
-      {/* 进度条 */}
-      <div className="w-full bg-gray-100 rounded-full h-1.5 mb-6">
-        <div className="bg-blue-400 h-1.5 rounded-full transition-all" style={{ width: `${((idx + 1) / session.questions.length) * 100}%` }} />
+      <div className="w-full bg-[#E2E8F0] h-2 md:h-3 rounded mb-6 overflow-hidden">
+        <div className="h-full bg-brand rounded transition-all" style={{ width: `${((idx + 1) / session.questions.length) * 100}%` }} />
       </div>
 
-      {/* 题目 */}
       <div className="mb-6">
         <div className="text-xs text-gray-400 mb-2">
           {q.knowledge_points?.[0] && <span className="bg-gray-100 px-2 py-0.5 rounded mr-2">{q.knowledge_points[0]}</span>}
           {q.difficulty && <span>{q.difficulty === 'easy' ? '基础' : q.difficulty === 'medium' ? '中等' : q.difficulty === 'hard' ? '挑战' : ''}</span>}
         </div>
-        <p className="text-gray-700 text-base md:text-lg leading-relaxed">{q.question_text}</p>
+        <p className="text-base md:text-lg leading-relaxed font-medium">{q.question_text}</p>
       </div>
 
-      {/* 选项 */}
-      <div className="space-y-3 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
         {options.map(opt => {
           const isThis = q.user_answer === opt.label;
           const isCorrectOpt = opt.label === q.correct_answer;
-          let cls = 'border-2 rounded-xl p-3 md:p-4 text-left transition-colors duration-200 w-full ';
+          let cls = 'border-2 border-[#E2E8F0] rounded-xl px-4 py-4 text-left transition-all w-full ';
           if (!answered) {
-            cls += 'border-gray-200 active:scale-[0.98] active:border-blue-300';
+            cls += 'active:opacity-70 bg-[#F8FAFC]';
           } else if (isCorrectOpt) {
-            cls += 'border-green-400 bg-green-50';
+            cls += 'border-[#10B981] bg-[#F0FDF4] text-[#047857]';
           } else if (isThis && !isCorrect) {
-            cls += 'border-red-400 bg-red-50';
+            cls += 'border-[#FCA5A5] bg-[#FEF2F2] text-[#B91C1C]';
           } else {
-            cls += 'border-gray-100 opacity-50';
+            cls += 'opacity-40';
           }
           return (
             <button key={opt.label} onClick={() => !answered && onAnswer(opt.label)} className={cls}>
@@ -256,21 +242,20 @@ function QuizView({ session, idx, answered, onAnswer, onNext, onBack }: {
 
       {/* 答题反馈 */}
       {answered && (
-        <div className={`rounded-xl p-4 mb-4 ${isCorrect ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'}`}>
-          <div className={`font-bold text-sm mb-2 ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
-            {isCorrect ? '✅ 回答正确！' : '❌ 回答错误'}
-          </div>
-          <p className="text-sm text-gray-600 leading-relaxed">{q.explanation}</p>
+        <div className="bg-[#F0FDF4] border-l-4 border-[#10B981] pl-3 py-3 rounded-r-lg mb-6">
+          <p className="text-xs font-semibold text-muted mb-2">{isCorrect ? '✓ 回答正确' : '✗ 回答错误'}</p>
+          <p className="text-sm leading-relaxed">{q.explanation}</p>
         </div>
       )}
 
-      {/* 底部按钮 */}
       {answered && (
         <button onClick={onNext}
-          className="w-full py-3 bg-blue-500 text-white rounded-xl text-sm font-medium active:bg-blue-600 transition">
-          {isLast ? '查看结果' : '下一题 →'}
+          className="w-full md:max-w-sm md:mx-auto block py-4 bg-[#58CC02] text-white text-base font-bold rounded-2xl active:translate-y-0.5"
+          style={{ boxShadow: '0 4px 0 #46A302' }}>
+          {isLast ? '查看结果' : '下一题'}
         </button>
       )}
+      </div>
     </PageContainer>
   );
 }
@@ -291,61 +276,55 @@ function ResultView({ session, onBack }: {
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
 
   return (
-    <PageContainer>
-      <button onClick={onBack} className="text-gray-400 text-sm mb-4 block">← 返回练习</button>
+    <PageContainer className="overflow-auto">
+      <div className="md:max-w-2xl md:mx-auto">
+      <BackLink onClick={onBack} label="← 返回练习" />
 
-      {/* 正确率 */}
-      <div className="text-center mb-6">
-        <div className={`text-5xl font-bold ${accuracy >= 80 ? 'text-green-500' : accuracy >= 60 ? 'text-yellow-500' : 'text-red-500'}`}>
-          {accuracy}%
-        </div>
-        <div className="text-gray-400 text-sm mt-1">正确率</div>
+      <div className="text-center mb-8 py-6 rounded-2xl"
+        style={{ background: 'linear-gradient(135deg, #0077B6 0%, #38BDF8 100%)' }}>
+        <div className="text-4xl font-bold tabular-nums text-white">{accuracy}%</div>
+        <div className="text-xs text-white/80 font-semibold mt-2">正确率</div>
       </div>
 
-      {/* 统计卡片 */}
-      <div className="grid grid-cols-4 gap-2 mb-6">
+      <div className="flex justify-between mb-10 text-center">
         {[
-          { label: '总题数', value: total, color: 'text-gray-700' },
-          { label: '正确', value: correct, color: 'text-green-600' },
-          { label: '错误', value: wrong, color: 'text-red-600' },
-          { label: '跳过', value: skipped, color: 'text-gray-400' },
+          { label: '总题数', value: total },
+          { label: '正确', value: correct },
+          { label: '错误', value: wrong },
+          { label: '跳过', value: skipped },
         ].map(s => (
-          <div key={s.label} className="bg-white rounded-xl p-3 shadow-sm text-center">
-            <div className={`text-xl font-bold ${s.color}`}>{s.value}</div>
-            <div className="text-xs text-gray-400">{s.label}</div>
+          <div key={s.label} className="flex-1">
+            <div className="text-lg font-light tabular-nums">{s.value}</div>
+            <div className="text-[10px] text-muted mt-1">{s.label}</div>
           </div>
         ))}
       </div>
 
-      {/* 错题回顾 */}
       {wrongQuestions.length > 0 && (
-        <div className="mb-6">
-          <h3 className="text-sm font-bold text-gray-600 mb-3">❌ 错题回顾</h3>
-          <div className="space-y-2">
-            {wrongQuestions.map((q, i) => (
-              <div key={q.id} className="bg-white rounded-xl shadow-sm overflow-hidden">
-                <button onClick={() => setExpandedIdx(expandedIdx === i ? null : i)}
-                  className="w-full p-3 text-left active:bg-gray-50">
-                  <p className="text-sm text-gray-700 line-clamp-2">{q.question_text}</p>
-                  <div className="text-xs text-gray-400 mt-1">
-                    你的答案：{q.user_answer} · 正确答案：{q.correct_answer}
-                  </div>
-                </button>
-                {expandedIdx === i && (
-                  <div className="px-3 pb-3 border-t border-gray-50">
-                    <p className="text-sm text-gray-600 leading-relaxed pt-2">{q.explanation}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+        <div className="mb-8">
+          <p className="text-[10px] tracking-widest text-muted mb-4">错题回顾</p>
+          {wrongQuestions.map((q, i) => (
+            <div key={q.id} className="p-3.5 bg-[#F8FAFC] rounded-[14px] mb-2">
+              <button onClick={() => setExpandedIdx(expandedIdx === i ? null : i)}
+                className="w-full text-left active:opacity-60">
+                <p className="text-sm font-semibold line-clamp-2">{q.question_text}</p>
+                <div className="text-xs text-muted mt-2">
+                  你的答案 {q.user_answer} · 正确 {q.correct_answer}
+                </div>
+              </button>
+              {expandedIdx === i && (
+                <p className="text-sm leading-relaxed pt-3 text-muted border-t border-[#E2E8F0] mt-3">{q.explanation}</p>
+              )}
+            </div>
+          ))}
         </div>
       )}
 
       <button onClick={onBack}
-        className="w-full py-3 bg-gray-100 text-gray-600 rounded-xl text-sm font-medium active:bg-gray-200">
+        className="w-full py-4 border-2 border-[#E2E8F0] rounded-2xl text-sm font-semibold text-muted active:opacity-60">
         返回练习
       </button>
+      </div>
     </PageContainer>
   );
 }

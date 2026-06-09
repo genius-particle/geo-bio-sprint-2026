@@ -2,14 +2,54 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>地生冲刺</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%2216a34a%22/><text x=%2250%22 y=%2265%22 font-size=%2245%22 text-anchor=%22middle%22 fill=%22white%22>地生</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%220077B6%22/><text x=%2250%22 y=%2265%22 font-size=%2245%22 text-anchor=%22middle%22 fill=%22white%22>地生</text></svg>">
     <style>
-      body { font-family: 'Noto Sans SC', sans-serif; font-size: 16px; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; }
-      ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: transparent; } ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 2px; }
+      :root {
+        --color-brand: #0077B6;
+        --color-brand-light: #38BDF8;
+        --color-cta: #58CC02;
+        --color-cta-shadow: #46A302;
+        --color-geo: #0077B6;
+        --color-bio: #10B981;
+        --color-surface: #FFFFFF;
+        --color-card: #F8FAFC;
+        --color-border: #E2E8F0;
+        --color-muted: #64748B;
+        --color-text: #0F172A;
+        --font-body: 'Noto Sans SC', Poppins, sans-serif;
+      }
+      body {
+        font-family: var(--font-body);
+        font-size: 16px;
+        background: var(--color-surface);
+        color: var(--color-text);
+        -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color: transparent;
+      }
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 2px; }
+      .safe-area-bottom { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(4px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in { animation: fade-in 0.3s ease-out; }
+      .text-brand { color: var(--color-brand); }
+      .bg-brand { background-color: var(--color-brand); }
+      .border-hairline { border-color: var(--color-border); }
+      .text-muted { color: var(--color-muted); }
+      .hex-badge {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      }
+      .wiki-content h2 { color: var(--color-brand); border-bottom: 1px solid var(--color-border); padding-bottom: 0.25rem; margin-top: 1.25rem; margin-bottom: 0.5rem; font-size: 1rem; font-weight: 600; }
+      .wiki-content a[href^="wiki:"] { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
+      .wiki-content p { line-height: 1.75; margin-bottom: 0.75rem; }
+      .wiki-content blockquote { border-left: 4px solid var(--color-bio); padding-left: 1rem; background: #F0FDF4; color: var(--color-muted); margin: 1rem 0; border-radius: 0 8px 8px 0; }
     </style>
   </head>
   <body>

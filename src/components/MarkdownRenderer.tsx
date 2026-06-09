@@ -44,45 +44,45 @@ export default function MarkdownRenderer({ content, onWikiLink }: MarkdownRender
   const components = useMemo(() => ({
     // h1 不渲染（页面标题已单独显示）
     h1: () => null,
-    h2: ({ children, ...props }: any) => (
-      <h2 {...props} className="text-base font-bold text-green-700 mt-5 mb-2 pb-1 border-b border-green-100">
+    h2: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+      <h2 {...props} className="text-base font-semibold text-brand mt-5 mb-2 pb-1 border-b border-[#E2E8F0]">
         {children}
       </h2>
     ),
-    h3: ({ children, ...props }: any) => (
+    h3: ({ children, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
       <h3 {...props} className="text-sm font-bold text-gray-700 mt-3 mb-1">{children}</h3>
     ),
-    p: ({ children, ...props }: any) => (
+    p: ({ children, ...props }: React.HTMLAttributes<HTMLParagraphElement>) => (
       <p {...props} className="mb-2 last:mb-0 leading-relaxed text-gray-700 text-sm">{children}</p>
     ),
-    ul: ({ children, ...props }: any) => (
+    ul: ({ children, ...props }: React.HTMLAttributes<HTMLUListElement>) => (
       <ul {...props} className="mb-2 ml-4 list-disc space-y-1">{children}</ul>
     ),
-    ol: ({ children, ...props }: any) => (
+    ol: ({ children, ...props }: React.HTMLAttributes<HTMLOListElement>) => (
       <ol {...props} className="mb-2 ml-4 list-decimal space-y-1">{children}</ol>
     ),
-    li: ({ children, ...props }: any) => (
-      <li {...props} className="text-sm text-gray-700 leading-relaxed">{children}</li>
+    li: ({ children, ...props }: React.HTMLAttributes<HTMLLIElement>) => (
+      <li {...props} className="text-sm font-light leading-relaxed">{children}</li>
     ),
-    blockquote: ({ children, ...props }: any) => (
-      <blockquote {...props} className="border-l-3 border-green-300 bg-green-50 pl-3 py-1 rounded-r mb-2 text-sm text-gray-600 italic">{children}</blockquote>
+    blockquote: ({ children, ...props }: React.HTMLAttributes<HTMLQuoteElement>) => (
+      <blockquote {...props} className="border-l-4 border-[#10B981] bg-[#F0FDF4] pl-3 py-2 mb-2 text-sm text-muted rounded-r-lg">{children}</blockquote>
     ),
-    strong: ({ children, ...props }: any) => (
+    strong: ({ children, ...props }: React.HTMLAttributes<HTMLElement>) => (
       <strong {...props} className="font-bold text-gray-800">{children}</strong>
     ),
-    code: ({ children, ...props }: any) => (
+    code: ({ children, ...props }: React.HTMLAttributes<HTMLElement>) => (
       <code {...props} className="bg-gray-100 text-green-700 px-1 py-0.5 rounded text-xs font-mono">{children}</code>
     ),
     // wiki 链接样式（绿色下划线），点击由容器事件委托处理
-    a: ({ href, children, ...props }: any) => {
+    a: ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
       if (href?.startsWith('wiki:')) {
         return (
-          <a {...props} href={href} className="text-green-600 underline decoration-green-300 underline-offset-2 font-medium">
+          <a {...props} href={href} className="text-brand underline underline-offset-2">
             {children}
           </a>
         );
       }
-      return <a {...props} href={href} className="text-green-600 underline">{children}</a>;
+      return <a {...props} href={href} className="text-brand underline">{children}</a>;
     },
   }), []);
 

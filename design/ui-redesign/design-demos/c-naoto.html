@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>地生冲刺 · 方向 C 克制工具</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans SC', sans-serif; background: #EFEFEF; color: #0A0A0A; padding: 32px 16px; }
+    h1.page-title { font-size: 24px; font-weight: 300; letter-spacing: .08em; margin-bottom: 8px; }
+    .meta { font-size: 13px; color: #888; margin-bottom: 32px; font-weight: 300; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
+    .phone { width: 390px; height: 844px; background: #FAFAFA; border-radius: 36px; border: 1px solid #D4D4D4; overflow: hidden; display: flex; flex-direction: column; flex-shrink: 0; }
+    .phone-label { text-align: center; font-size: 12px; color: #888; font-style: italic; margin-bottom: 8px; }
+    .status { height: 44px; padding: 14px 28px 0; font-size: 13px; font-weight: 500; display: flex; justify-content: space-between; }
+    .screen { flex: 1; overflow: hidden; padding: 0 28px 8px; }
+    .brand { font-size: 13px; letter-spacing: .2em; color: #1B4332; margin: 20px 0 4px; font-weight: 500; }
+    .tagline { font-size: 12px; color: #888; font-weight: 300; margin-bottom: 48px; }
+    .cta { background: #1B4332; color: #FAFAFA; border: none; width: 100%; padding: 20px; font-size: 15px; font-weight: 500; letter-spacing: .1em; font-family: inherit; margin-bottom: 40px; }
+    .stats { display: flex; justify-content: space-between; padding: 20px 0; border-top: 1px solid #EFEFEF; border-bottom: 1px solid #EFEFEF; margin-bottom: 32px; }
+    .stats div { text-align: center; flex: 1; }
+    .stats b { display: block; font-size: 22px; font-weight: 300; font-variant-numeric: tabular-nums; }
+    .stats small { font-size: 10px; color: #888; letter-spacing: .05em; }
+    .list-label { font-size: 10px; letter-spacing: .15em; color: #888; margin-bottom: 16px; }
+    .row { padding: 16px 0; border-bottom: 1px solid #EFEFEF; display: flex; align-items: flex-start; gap: 16px; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+    .dot.geo { background: #2563EB; } .dot.bio { background: #16A34A; }
+    .row-title { font-size: 14px; font-weight: 500; line-height: 1.5; }
+    .row-meta { font-size: 11px; color: #888; margin-top: 4px; font-weight: 300; }
+    .page-h { font-size: 18px; font-weight: 500; letter-spacing: .05em; margin: 24px 0 28px; }
+    .seg { display: flex; gap: 0; border-bottom: 1px solid #EFEFEF; margin-bottom: 24px; }
+    .seg button { flex: 1; border: none; background: none; padding: 12px 0; font-size: 13px; color: #888; font-family: inherit; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+    .seg button.on { color: #1B4332; border-bottom-color: #1B4332; font-weight: 500; }
+    .search { width: 100%; border: none; border-bottom: 1px solid #D4D4D4; background: transparent; padding: 12px 0; font-size: 14px; margin-bottom: 24px; font-family: inherit; outline: none; }
+    .badge { font-size: 10px; letter-spacing: .08em; padding: 4px 0; margin-right: 16px; color: #888; }
+    .badge strong { color: #1B4332; font-weight: 500; }
+    .img-ph { background: #EFEFEF; height: 140px; margin: 24px 0; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #BBB; }
+    .parse { font-size: 14px; line-height: 1.9; color: #333; font-weight: 300; margin-top: 16px; }
+    .empty { text-align: center; padding: 64px 0; color: #BBB; font-size: 13px; font-weight: 300; line-height: 1.8; }
+    .tabbar { border-top: 1px solid #EFEFEF; display: flex; padding: 12px 0 28px; background: #FAFAFA; }
+    .tab { flex: 1; text-align: center; font-size: 9px; color: #BBB; letter-spacing: .05em; }
+    .tab svg { display: block; margin: 0 auto 6px; stroke: #BBB; }
+    .tab.on { color: #1B4332; } .tab.on svg { stroke: #1B4332; }
+    .back { font-size: 13px; color: #888; margin: 16px 0; font-weight: 300; }
+  </style>
+</head>
+<body>
+  <h1 class="page-title">方向 C · 克制工具</h1>
+  <p class="meta">原研哉白盒美学：近全白底、墨绿单 accent、发丝分割。</p>
+  <div class="gallery">
+    <div><div class="phone-label">首页</div><div class="phone"><div class="status"><span>9:41</span><span>○○○</span></div><div class="screen"><p class="brand">地生冲刺</p><p class="tagline">八年级地生会考备考工具</p><button class="cta">拍照录入</button><div class="stats"><div><b>51</b><small>总录入</small></div><div><b>0</b><small>待分析</small></div><div><b>51</b><small>错题</small></div></div><p class="list-label">最近录入</p><div class="row"><div class="dot geo"></div><div><div class="row-title">第八章 我们邻近的地区和国家</div><div class="row-meta">地理 · 已分析</div></div></div><div class="row"><div class="dot geo"></div><div><div class="row-title">第七章 北方地区</div><div class="row-meta">地理 · 已分析</div></div></div></div><div class="tabbar"><div class="tab on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1v-9.5z"/></svg>首页</div><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h6M9 11h6"/></svg>错题本</div><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>知识库</div><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>练习</div></div></div></div>
+    <div><div class="phone-label">错题本</div><div class="phone"><div class="status"><span>9:41</span><span>○○○</span></div><div class="screen"><p class="page-h">错题本</p><div class="seg"><button class="on">全部</button><button>地理</button><button>生物</button></div><div class="seg"><button class="on">攻克中</button><button>已掌握</button></div><div class="row"><div class="dot geo"></div><div><div class="row-title">第八章 我们邻近的地区和国家</div><div class="row-meta">复习 0 次</div></div></div><div class="row"><div class="dot geo"></div><div><div class="row-title">第七章 北方地区</div><div class="row-meta">复习 0 次</div></div></div></div><div class="tabbar"><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1v-9.5z"/></svg>首页</div><div class="tab on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="1"/></svg>错题本</div><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>知识库</div><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>练习</div></div></div></div>
+    <div><div class="phone-label">知识库</div><div class="phone"><div class="status"><span>9:41</span><span>○○○</span></div><div class="screen"><p class="page-h">知识库</p><input class="search" placeholder="搜索知识点" readonly /><div class="row"><div class="dot bio"></div><div><div class="row-title">传染源与病原体</div><div class="row-meta">生物 · 第四单元 第七章</div></div></div><div class="row"><div class="dot geo"></div><div><div class="row-title">国家地理特征比较</div><div class="row-meta">地理 · 第八章</div></div></div></div><div class="tabbar"><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1v-9.5z"/></svg>首页</div><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="1"/></svg>错题本</div><div class="tab on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>知识库</div><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>练习</div></div></div></div>
+    <div><div class="phone-label">练习</div><div class="phone"><div class="status"><span>9:41</span><span>○○○</span></div><div class="screen"><p class="page-h">练习</p><div class="seg"><button class="on">全部</button><button>地理</button><button>生物</button></div><div class="empty">暂无练习题<br><span style="font-size:11px">/generate-practice</span></div></div><div class="tabbar"><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1v-9.5z"/></svg>首页</div><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="1"/></svg>错题本</div><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>知识库</div><div class="tab on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>练习</div></div></div></div>
+    <div><div class="phone-label">题目详情</div><div class="phone"><div class="status"><span>9:41</span><span>○○○</span></div><div class="screen"><p class="back">← 返回</p><p class="page-h" style="margin-top:0">题目详情</p><span class="badge">已分析</span><span class="badge"><strong>地理</strong></span><span class="badge">错题</span><div class="img-ph">IMAGE</div><p class="list-label" style="margin-top:24px">解析</p><p class="parse">俄罗斯森林面积居世界前列，两国森林资源都较丰富，D 正确。</p></div><div class="tabbar"><div class="tab on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1v-9.5z"/></svg>首页</div><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="1"/></svg>错题本</div><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>知识库</div><div class="tab"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>练习</div></div></div></div>
+  </div>
+</body>
+</html>
