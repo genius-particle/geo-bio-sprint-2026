@@ -22,7 +22,8 @@ export function mistakeRoutes() {
         const id = f.replace('.json', '');
         const m = readJson<any>(`mistakes/${f}`);
         const q = readJson<any>(`questions/${id}/meta.json`);
-        return q ? { ...m, question: q } : null;
+        if (!m || !q) return null;
+        return { ...m, question: q };
       }).filter(Boolean);
       sendJson(res, mistakes); return;
     }
