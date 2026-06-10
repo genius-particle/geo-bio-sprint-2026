@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-10-12-01-42",
+  "subject": "geography",
+  "chapter": "第一章 地球",
+  "knowledge_points": [
+    "昼夜长短",
+    "夏至日",
+    "太阳能发电"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "7. 若只考虑日照时间，该光热电站发电量最高的时间是（  ）\nA. 春分日  B. 夏至日  C. 秋分日  D. 冬至日",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T12:01:42.326Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "手写A被划改B；北半球夏至日照最长，两轮校验通过",
+  "analysis": {
+    "answer": "B",
+    "explanation": "甘肃位于北半球。只考虑日照时间时，夏至日白昼最长、太阳高度最大，日照时间最长，光热电站发电效率最高。春分、秋分昼夜等长，冬至日白昼最短。",
+    "key_concept": "昼夜长短与夏至日",
+    "common_mistakes": [
+      "误选春分日",
+      "混淆日照时间与正午太阳高度"
+    ],
+    "related_topics": [
+      "地球公转",
+      "日落方位与季节变化"
+    ]
+  }
+}

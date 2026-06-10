@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-10-12-04-57",
+  "subject": "biology",
+  "chapter": "第二单元 第二章 细胞怎样构成生物体",
+  "knowledge_points": [
+    "细胞分裂",
+    "细胞分化",
+    "植物体结构层次"
+  ],
+  "difficulty": "easy",
+  "question_type": "fill",
+  "ocr_text": "（1）图1中 a 表示____过程，b 表示____过程。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T12:04:57.018Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "学生漏写细胞二字（红笔补批），a=细胞分裂、b=细胞分化，已确认",
+  "analysis": {
+    "answer": "细胞分裂；细胞分化",
+    "explanation": "图1中 a 是一个细胞分成两个相同细胞，是细胞分裂；b 是细胞形态功能不同形成不同组织，是细胞分化。两者共同构成植物体由细胞到组织、器官、个体的结构层次。",
+    "key_concept": "细胞分裂与细胞分化",
+    "common_mistakes": [
+      "混淆分裂与分化",
+      "漏写细胞二字"
+    ],
+    "related_topics": [
+      "植物体结构层次"
+    ]
+  }
+}

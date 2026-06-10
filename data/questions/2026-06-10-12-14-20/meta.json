@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-10-12-14-20",
+  "subject": "biology",
+  "chapter": "第三单元 第二章 生物的遗传和变异",
+  "knowledge_points": [
+    "开花传粉受精",
+    "显隐性判断",
+    "遗传图解"
+  ],
+  "difficulty": "medium",
+  "question_type": "mixed",
+  "ocr_text": "（1）结出豆荚必须经过____过程，子房中的____发育成为种子。\n分析：根据实验____，可判断圆粒为显性性状。皱粒精子基因组成____，子代圆粒与皱粒比例为____。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T12:14:20.601Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "红笔改开花传粉、实验一；r和1:1正确，两轮校验通过",
+  "analysis": {
+    "answer": "（1）开花、传粉（受精）；胚珠；一（实验一）；r；1:1",
+    "explanation": "（1）豆荚形成需先开花传粉再受精，胚珠发育成种子。判断显性看实验一：圆粒×皱粒→全圆粒，说明圆粒显性。实验二为测交Rr×rr，皱粒配子为r，子代Rr:rr=1:1。学生误填“圆粒”应填“一/实验一”。",
+    "key_concept": "豌豆杂交与显隐性判断",
+    "common_mistakes": [
+      "漏写开花传粉只写受精",
+      "用“圆粒”代替“实验一”作依据"
+    ],
+    "related_topics": [
+      "基因的显隐性与遗传概率"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "2026-06-10-11-55-00",
+  "subject": "geography",
+  "chapter": "第一章 地球",
+  "knowledge_points": [
+    "地球公转与季节变化",
+    "日落方位",
+    "西北地区河流水文特征"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "（黑白卷改编）小明在新疆维吾尔自治区旅游时，发现巴音布鲁克草原的开都河蜿蜒曲折，在丰水期的傍晚，落日倒映在水面上，会呈现出“九个太阳”的奇观。下图为小明拍摄的“九个太阳”落日奇观。据此完成1~3题。\n2. 小明拍摄落日奇观时，其镜头朝向\nA. 东南  B. 西南  C. 东北  D. 西北",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T11:55:00.120Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:30:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "手写批注选B（西南）与推导矛盾；7月北半球夏半年日落应在西北，以印刷材料“丰水期傍晚”为准，两轮校验通过",
+  "analysis": {
+    "answer": "D",
+    "explanation": "题干提到“丰水期傍晚”拍摄落日。新疆河流丰水期在夏季（7月前后），此时北半球为夏半年。夏至前后北半球白昼长，太阳落山位置偏北，傍晚太阳位于西北方向。要拍落日，镜头应朝向西北。西南是冬半年（如10月、1月）更常见的日落方位，与夏季不符。",
+    "key_concept": "日落方位与季节变化",
+    "common_mistakes": [
+      "把“西南”当成所有季节通用的日落方向",
+      "忽略“丰水期”暗示的夏季背景",
+      "混淆镜头朝向与太阳所在方位"
+    ],
+    "related_topics": [
+      "地球公转",
+      "四大地理区域",
+      "西北地区自然特征"
+    ]
+  }
+}

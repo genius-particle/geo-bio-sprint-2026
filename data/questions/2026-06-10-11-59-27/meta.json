@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-10-11-59-27",
+  "subject": "geography",
+  "chapter": "第一章 地球",
+  "knowledge_points": [
+    "太阳直射点移动",
+    "春耕春播",
+    "节气与农事"
+  ],
+  "difficulty": "medium",
+  "question_type": "fill",
+  "ocr_text": "（2）惊蛰节气后一段时间内太阳直射点的变化情况是____，我国大部分地区气温____（升高/降低），适宜进行春耕。\n（3）……是否适用于西安……东部地区春耕春播时间由南向北推迟。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 2,
+  "notes": "",
+  "created_at": "2026-06-10T11:59:27.415Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "手写“向上”已红笔改为“北移”；气温“升高”正确，两轮校验通过",
+  "analysis": {
+    "answer": "北移；升高",
+    "explanation": "惊蛰在3月初，之后太阳直射点自南半球继续北移，越过赤道后北半球进入春半年，我国大部分地区气温回升升高，进入春耕春播季节。“向上”不是规范地理术语，应写“北移”。",
+    "key_concept": "太阳直射点移动与农事活动",
+    "common_mistakes": [
+      "用“向上”代替“北移”",
+      "混淆直射点移动方向与气温变化"
+    ],
+    "related_topics": [
+      "地球公转",
+      "中国蔬菜生产的区域与季节差异"
+    ]
+  }
+}

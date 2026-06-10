@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-10-11-55-43",
+  "subject": "geography",
+  "chapter": "第四章 天气与气候",
+  "knowledge_points": [
+    "天气符号",
+    "风向与旗帜飘向",
+    "天气预报读图"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "2025年5月23日，中国—中东欧国际帆船赛暨宁波国际帆船赛首个比赛日在宁波象山亚帆中心扬帆起航。读宁波当日天气状况示意图，完成1~2题。\n宁波 5月23日  天气：雨  风向符号：东北风  气温：19~27℃\n2. 在海边观看比赛的市民，会发现帆船上的彩旗飘向（  ）\nA. 西南方向  B. 西北方向  C. 东北方向  D. 东南方向",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T11:55:43.932Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:32:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "手写批注选C（东北）与风向定义矛盾；风向为风吹来方向，旗帜应飘向西南，两轮校验通过",
+  "analysis": {
+    "answer": "A",
+    "explanation": "天气预报图中风向符号表示东北风，即风从东北方向吹来。旗帜被风吹动，会飘向风的去向，与来向相反，因此飘向西南方向。常见错误是把“风向”当成旗帜飘去的方向，实际上风向指风吹来的方向。",
+    "key_concept": "风向与旗帜飘向",
+    "common_mistakes": [
+      "把风向（风吹来的方向）误当成旗帜飘去的方向",
+      "看到东北风符号就直接选东北",
+      "混淆风的来向与去向"
+    ],
+    "related_topics": [
+      "天气符号",
+      "气温观测与气象灾害"
+    ]
+  }
+}

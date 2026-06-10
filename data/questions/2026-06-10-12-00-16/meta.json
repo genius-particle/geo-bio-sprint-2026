@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-10-12-00-16",
+  "subject": "geography",
+  "chapter": "第四章 中国的经济发展",
+  "knowledge_points": [
+    "冬小麦与春小麦",
+    "农业节气",
+    "西安农业"
+  ],
+  "difficulty": "medium",
+  "question_type": "fill",
+  "ocr_text": "西安小麦耕种指南：西安所在地区小麦能够顺利越冬，适宜播种____（春/冬）小麦，一般在9月下旬至10月中旬进行播种。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T12:00:16.302Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "红笔改“冬”；越冬+秋播指向冬小麦，两轮校验通过",
+  "analysis": {
+    "answer": "冬",
+    "explanation": "能“顺利越冬”且秋季（9—10月）播种，说明是冬小麦。冬小麦秋播、次年夏收；春小麦春季播种，不能越冬。西安位于北方，主产冬小麦。",
+    "key_concept": "冬小麦与春小麦的区别",
+    "common_mistakes": [
+      "看到“小麦”就选春小麦",
+      "忽略“越冬”和播种时间线索"
+    ],
+    "related_topics": [
+      "四大地理区域与地形区",
+      "中国蔬菜生产的区域与季节差异"
+    ]
+  }
+}

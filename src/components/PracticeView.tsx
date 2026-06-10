@@ -104,7 +104,26 @@ export default function PracticeView() {
     .filter(s => subjectFilter === 'all' || s.subject === subjectFilter)
     .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
+  const { active, completed } = filtered.reduce<{ active: PracticeSession[]; completed: PracticeSession[] }>(
+    (acc, s) => { (isCompleted(s) ? acc.completed : acc.active).push(s); return acc; },
+    { active: [], completed: [] },
+  );
+
   // ─── 渲染 ───
+
+  /** 卡片头部：学科标签 + 标题 + 日期题数 */
+  function CardHeader({ s, total }: { s: PracticeSession; total: number }) {
+    return (
+      <>
+        <div className="flex items-center gap-2 mb-2">
+          <SubjectLabel subject={s.subject as Subject} />
+          {s.mode === 'knowledge' && <span className="text-[10px] text-muted font-semibold">知识点</span>}
+        </div>
+        <div className="font-semibold text-sm mb-1">{s.title}</div>
+        <div className="text-xs text-muted mb-3">{new Date(s.created_at).toLocaleDateString()} · {total} 题</div>
+      </>
+    );
+  }
 
   if (subView === 'quiz' && activeSession) {
     return <QuizView session={activeSession} idx={currentIdx} answered={answered} onAnswer={handleAnswer} onNext={handleNext} onBack={goHome} />;
@@ -130,46 +149,73 @@ export default function PracticeView() {
       {filtered.length === 0 ? (
         <EmptyState message="暂无练习题" subMessage="运行 /generate-practice 生成练习题" />
       ) : (
-        <ListGrid>
-        {filtered.map(s => {
-          const { total, done } = getProgress(s);
-          const completed = isCompleted(s);
-          const accuracy = getAccuracy(s);
-          return (
-            <div key={s.id} className="p-4 bg-[#F8FAFC] rounded-[14px]">
-              <div className="flex items-center gap-2 mb-2">
-                <SubjectLabel subject={s.subject as Subject} />
-                {s.mode === 'knowledge' && <span className="text-[10px] text-muted font-semibold">知识点</span>}
-              </div>
-              <div className="font-semibold text-sm mb-1">{s.title}</div>
-              <div className="text-xs text-muted mb-3">{new Date(s.created_at).toLocaleDateString()} · {total} 题</div>
+        <>
+          {/* 进行中 */}
+          {active.length > 0 && (
+            <>
+              <p className="text-[10px] tracking-widest text-muted mb-3">进行中</p>
+              <ListGrid>
+              {active.map(s => {
+                const { total, done } = getProgress(s);
+                return (
+                  <div key={s.id} className="p-4 bg-[#F8FAFC] rounded-[14px]">
+                    <CardHeader s={s} total={total} />
+                    {total > 0 && (
+                      <div className="w-full bg-[#E2E8F0] h-2 rounded mb-3 overflow-hidden">
+                        <div className="h-full bg-brand rounded transition-all"
+                          style={{ width: `${(done / total) * 100}%` }} />
+                      </div>
+                    )}
+                    {done > 0 ? (
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-muted">进度 {done}/{total}</span>
+                        <button onClick={() => startQuiz(s)} className="text-sm font-semibold text-brand active:opacity-60">继续练习</button>
+                      </div>
+                    ) : (
+                      <button onClick={() => startQuiz(s)} className="text-sm font-semibold text-brand active:opacity-60">
+                        开始练习 →
+                      </button>
+                    )}
+                  </div>
+                );
+              })}
+              </ListGrid>
+            </>
+          )}
 
-              {total > 0 && (
-                <div className="w-full bg-[#E2E8F0] h-2 rounded mb-3 overflow-hidden">
-                  <div className="h-full bg-brand rounded transition-all"
-                    style={{ width: `${(done / total) * 100}%` }} />
-                </div>
-              )}
+          {/* 已完成 */}
+          {completed.length > 0 && (
+            <>
+              <p className={`text-[10px] tracking-widest text-muted mb-3 ${active.length > 0 ? 'mt-6' : ''}`}>已完成</p>
+              <ListGrid>
+              {completed.map(s => {
+                const { total } = getProgress(s);
+                const accuracy = getAccuracy(s);
+                return (
+                  <div key={s.id} className="p-4 bg-[#F8FAFC] rounded-[14px] opacity-60">
+                    <CardHeader s={s} total={total} />
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-semibold text-brand">正确率 {accuracy}%</span>
+                      <button onClick={() => viewResult(s)} className="text-sm font-semibold text-muted active:opacity-60">查看结果</button>
+                    </div>
+                  </div>
+                );
+              })}
+              </ListGrid>
+            </>
+          )}
 
-              {completed ? (
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-brand">正确率 {accuracy}%</span>
-                  <button onClick={() => viewResult(s)} className="text-sm font-semibold text-muted active:opacity-60">查看结果</button>
-                </div>
-              ) : done > 0 ? (
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted">进度 {done}/{total}</span>
-                  <button onClick={() => startQuiz(s)} className="text-sm font-semibold text-brand active:opacity-60">继续练习</button>
-                </div>
-              ) : (
-                <button onClick={() => startQuiz(s)} className="text-sm font-semibold text-brand active:opacity-60">
-                  开始练习 →
-                </button>
-              )}
+          {/* 全做完时引导出新题 */}
+          {active.length === 0 && completed.length > 0 && (
+            <div className="text-center py-6 animate-fade-in">
+              <p className="text-sm text-[#94A3B8]">
+                所有练习已完成 ✅ 运行&nbsp;
+                <code className="bg-[#F1F5F9] px-1.5 py-0.5 rounded text-xs font-mono text-brand">/generate-practice</code>
+                &nbsp;出新题
+              </p>
             </div>
-          );
-        })}
-        </ListGrid>
+          )}
+        </>
       )}
     </PageContainer>
   );

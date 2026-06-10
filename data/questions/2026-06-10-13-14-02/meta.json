@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-10-13-14-02",
+  "subject": "biology",
+  "chapter": "第三单元 第一章 生物的生殖和发育",
+  "knowledge_points": [
+    "嫁接",
+    "接穗与砧木"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "10. 彩叶豆梨和杜梨都可用于园林造景，具有一定的观赏价值。某科研人员按如图方式进行嫁接，嫁接后新植株将来所结果实为（ ）。\nA. 彩叶豆梨  B. 杜梨  C. 两者都有  D. 无法确定\n\n图中：接穗（上方）为彩叶豆梨，砧木（下方）为杜梨。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 2,
+  "notes": "原题2026-06-10-12-13-33图片不完整，补拍后重新录入",
+  "created_at": "2026-06-10T13:14:02.659Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T13:20:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "补拍图片确认接穗为彩叶豆梨，砧木为杜梨，答案A",
+  "analysis": {
+    "answer": "A",
+    "explanation": "嫁接后结出的果实由接穗（上部枝条）的遗传物质决定，与砧木无关。图中接穗为彩叶豆梨，砧木为杜梨，因此嫁接后新植株结果实为彩叶豆梨。学生选C（两者都有）是常见误区，嫁接不会导致性状混合。",
+    "key_concept": "嫁接与果实性状",
+    "common_mistakes": [
+      "认为嫁接后两种性状混合，误选两者都有",
+      "分不清接穗和砧木哪个决定果实性状"
+    ],
+    "related_topics": [
+      "植物无性生殖与果实结构"
+    ]
+  }
+}

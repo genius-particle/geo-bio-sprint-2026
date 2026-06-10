@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-10-12-11-58",
+  "subject": "biology",
+  "chapter": "第六单元 第二章 认识生物的多样性",
+  "knowledge_points": [
+    "生物多样性",
+    "食物链",
+    "动物行为",
+    "自然保护区"
+  ],
+  "difficulty": "medium",
+  "question_type": "mixed",
+  "ocr_text": "（2）补全食物链：____→昆虫→丹顶鹤→鹰。丹顶鹤是____者。\n（4）野化训练属于____行为。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 2,
+  "notes": "",
+  "created_at": "2026-06-10T12:11:58.873Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "Q2食物链被红笔改；Q4未答应为学习行为，两轮校验通过",
+  "analysis": {
+    "answer": "（2）植物（或水草/芦苇等）；消费者；（4）学习",
+    "explanation": "（2）食物链从生产者开始，应填“植物”或“水草”等，不宜冗长写“植物的根茎叶子”。丹顶鹤以其他生物为食，是消费者。（4）野化训练是后天训练获得的，属于学习行为，不是先天性行为。",
+    "key_concept": "食物链与动物行为",
+    "common_mistakes": [
+      "食物链起点写法不规范",
+      "把训练获得的行为当成先天性行为"
+    ],
+    "related_topics": [
+      "食物链与生态系统物质循环",
+      "动物分类与特征"
+    ]
+  }
+}

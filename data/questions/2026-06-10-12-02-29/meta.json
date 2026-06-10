@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-10-12-02-29",
+  "subject": "geography",
+  "chapter": "第一章 地球",
+  "knowledge_points": [
+    "地球自转",
+    "昼夜交替",
+    "地理实践"
+  ],
+  "difficulty": "medium",
+  "question_type": "fill",
+  "ocr_text": "（4）该实验无法模拟昼夜交替的现象，针对这一情况请你提出改进措施。（任答一点）",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T12:02:29.766Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "题目未作答；改进核心是增加单向光源，两轮校验通过",
+  "analysis": {
+    "answer": "用手电筒照射“地球”（涡轮/杯子），使一侧受光、一侧背光，转动涡轮即可模拟昼夜交替（或：在暗室中用光源模拟太阳光）",
+    "explanation": "原实验只有风扇转动，缺少“光源”和“不透明球体被单向照射”的条件。增加手电筒模拟太阳，让杯子/涡轮一侧亮一侧暗，转动后就能出现昼夜交替。",
+    "key_concept": "昼夜交替的形成条件",
+    "common_mistakes": [
+      "只增加风扇而不加光源",
+      "混淆自转与公转的模拟方法"
+    ],
+    "related_topics": [
+      "地球自转",
+      "地球公转"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-10-12-08-49",
+  "subject": "biology",
+  "chapter": "第二单元 第二章 细胞怎样构成生物体",
+  "knowledge_points": [
+    "生态系统组成",
+    "食物链",
+    "碳循环"
+  ],
+  "difficulty": "medium",
+  "question_type": "fill",
+  "ocr_text": "（1）池塘生态系统中除图1所示外，还应包括图2中的____（选填“甲”“乙”或“丙”）。写出图2中的一条食物链：____。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T12:08:49.013Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "食物链已红笔改为乙→b→a，两轮校验通过",
+  "analysis": {
+    "answer": "甲；乙→b→a",
+    "explanation": "图1只有生产者和消费者，缺少分解者。图2中甲接收遗体并分解，是分解者。图2食物链从生产者乙出发，经消费者b到a，写作乙→b→a。不能用图1的“荷花→鼠→蛇”，鼠不在图中。",
+    "key_concept": "生态系统组成与食物链",
+    "common_mistakes": [
+      "忽略分解者甲",
+      "把图1生物硬套到图2食物链"
+    ],
+    "related_topics": [
+      "食物链与生态系统物质循环"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-10-12-12-42",
+  "subject": "biology",
+  "chapter": "第三单元 第一章 生物的生殖和发育",
+  "knowledge_points": [
+    "种子结构",
+    "块根与种子区别"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "4. 我们吃的红薯是由种子的哪一结构发育而来的（  ）\nA. 胚芽  B. 胚  C. 胚根  D. 胚轴",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T12:12:42.736Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "红薯块根由根膨大形成，根起源于胚根，答案C已确认",
+  "analysis": {
+    "answer": "C",
+    "explanation": "红薯食用的部分是块根，是由植物的根（侧根/不定根）膨大形成的。而根系统最初由种子萌发时胚根发育而来，因此红薯可追溯至胚根发育的结构。",
+    "key_concept": "块根与种子结构的区别",
+    "common_mistakes": [
+      "不知道红薯是块根、由胚根发育而来",
+      "误选胚芽或胚，混淆根与芽的发育来源"
+    ],
+    "related_topics": [
+      "植物无性生殖与果实结构",
+      "马铃薯的生殖与生理"
+    ]
+  }
+}
