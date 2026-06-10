@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-10-12-13-06",
+  "subject": "biology",
+  "chapter": "第三单元 第一章 生物的生殖和发育",
+  "knowledge_points": [
+    "胚胎发育",
+    "子宫的功能"
+  ],
+  "difficulty": "easy",
+  "question_type": "choice",
+  "ocr_text": "5. 科学家制作的“生物袋”系统中与人体内子宫作用相似的结构是（  ）\nA. 输液管  B. 气体交换机  C. 营养滴液袋  D. 生物袋",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T12:13:06.658Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "红笔划C；生物袋对应子宫，两轮校验通过",
+  "analysis": {
+    "answer": "D",
+    "explanation": "子宫是胚胎发育的场所，提供保护和环境。生物袋整体容纳并保护胚胎，功能与子宫相似。营养滴液袋类似提供营养（类似胎盘/脐带功能），气体交换机类似肺/胎盘气体交换，不是子宫。",
+    "key_concept": "子宫的胚胎发育功能",
+    "common_mistakes": [
+      "把营养供应结构当成子宫",
+      "混淆不同器官的功能对应"
+    ],
+    "related_topics": [
+      "植物无性生殖与果实结构"
+    ]
+  }
+}

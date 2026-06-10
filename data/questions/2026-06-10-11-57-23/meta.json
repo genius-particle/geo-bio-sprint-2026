@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-10-11-57-23",
+  "subject": "geography",
+  "chapter": "第四章 天气与气候",
+  "knowledge_points": [
+    "降水季节变化",
+    "气候资料读图"
+  ],
+  "difficulty": "easy",
+  "question_type": "fill",
+  "ocr_text": "（4）地理小组发现降水最多在____月，最少在____月，降水季节变化特点为____。\n数据：8月234.4mm最多，12月2.9mm最少。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T11:57:23.850Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "medium",
+  "needs_manual_review": false,
+  "verification_notes": "月份8、12正确；第三空口语化，规范表述为夏多冬少/季节分配不均，confidence medium",
+  "analysis": {
+    "answer": "8；12；夏多冬少（或降水季节分配不均，夏季集中、冬季稀少）",
+    "explanation": "读表：8月234.4mm为全年最多，12月2.9mm为最少。该地降水集中在6—8月夏季，冬季12—2月极少，特点为夏多冬少、季节分配不均。",
+    "key_concept": "降水季节变化",
+    "common_mistakes": [
+      "把7月误认为最多月（应以数据最大值为8月）",
+      "表述过于口语化，应用“季节分配不均”等规范用语"
+    ],
+    "related_topics": [
+      "温带季风气候读图",
+      "降水分布"
+    ]
+  }
+}

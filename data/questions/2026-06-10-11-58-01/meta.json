@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-10-11-58-01",
+  "subject": "geography",
+  "chapter": "第四章 天气与气候",
+  "knowledge_points": [
+    "温带海洋性气候",
+    "全球变暖影响"
+  ],
+  "difficulty": "medium",
+  "question_type": "essay",
+  "ocr_text": "（3）近年来，受全球气候变暖影响，巴黎夏季极端高温天气增多。说出极端高温天气可能给当地居民生活带来的不利影响。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T11:58:01.218Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "题目未作答，参考答案来自教师红笔批注要点，两轮校验通过",
+  "analysis": {
+    "answer": "中暑风险增加；户外活动受限；能源供应紧张（空调用电增加）；生活成本上升等（任答2—3点）",
+    "explanation": "极端高温直接影响人体健康（中暑），限制户外运动；居民大量使用空调导致用电负荷增大、能源紧张；降温支出增加使生活成本上升。可从健康、生活、能源等角度作答。",
+    "key_concept": "气候变暖对生活的影响",
+    "common_mistakes": [
+      "只写“很热”等空泛描述",
+      "把不利影响写成有利影响"
+    ],
+    "related_topics": [
+      "温带海洋性气候",
+      "气候类型图判读"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-10-12-06-50",
+  "subject": "biology",
+  "chapter": "第四单元 第五章 人体内废物的排出",
+  "knowledge_points": [
+    "人工肺",
+    "气体交换",
+    "肾单位与尿液形成"
+  ],
+  "difficulty": "hard",
+  "question_type": "mixed",
+  "ocr_text": "（2）图2人工肺：隔离膜相当于肺泡壁和毛细血管壁。气体④与气体③相比，气体成分的变化是____。\n（4）尿蛋白2+、红细胞>30，推测病变结构是图乙中的____（填序号）。",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 2,
+  "notes": "",
+  "created_at": "2026-06-10T12:06:50.783Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "两子题均有红笔改错；气体变化与肾小球病变，两轮校验通过",
+  "analysis": {
+    "answer": "（2）氧气减少，二氧化碳增加；（4）①",
+    "explanation": "（2）血液流经人工肺时进行气体交换：出肺侧气体中O₂减少、CO₂增加。学生误写“由CO₂变成O₂”方向反了。（4）尿中出现蛋白质和红细胞，说明肾小球滤过膜受损，病变在①（肾小球/肾小囊）。",
+    "key_concept": "气体交换方向与肾小球滤过",
+    "common_mistakes": [
+      "混淆气体交换前后成分变化方向",
+      "把肾小管②当成蛋白尿病变部位"
+    ],
+    "related_topics": [
+      "呼吸运动与肺容量变化",
+      "循环系统与呼吸系统的协调"
+    ]
+  }
+}

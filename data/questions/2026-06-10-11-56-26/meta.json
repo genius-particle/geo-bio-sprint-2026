@@ -1,0 +1,39 @@
+{
+  "id": "2026-06-10-11-56-26",
+  "subject": "geography",
+  "chapter": "第四章 天气与气候",
+  "knowledge_points": [
+    "降水分布",
+    "蓝水与绿水",
+    "水循环"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "降水在生态系统中被分为蓝水和绿水，蓝水是形成径流的部分；绿水是被蒸发（蒸腾）到大气的水汽。读世界年降水量分布图，完成6~7题。\n7. 为促进水循环提升绿水的比例，可采取的措施是（  ）\nA. 修建水库  B. 围湖造田  C. 植树造林  D. 人工降雨",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T11:56:26.920Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "手写批注选A（修水库）与绿水定义矛盾，植树造林才增加蒸腾，两轮校验通过",
+  "analysis": {
+    "answer": "C",
+    "explanation": "绿水指被蒸发、蒸腾进入大气的水汽。植树造林可增加植物蒸腾，提高绿水比例。修建水库主要调节蓝水（径流）；围湖造田减少水域蒸发；人工降雨增加降水但不专门提升蒸腾比例。",
+    "key_concept": "蓝水与绿水",
+    "common_mistakes": [
+      "把修水库当成增加绿水",
+      "混淆径流（蓝水）与蒸腾（绿水）"
+    ],
+    "related_topics": [
+      "水循环",
+      "降水分布"
+    ]
+  }
+}

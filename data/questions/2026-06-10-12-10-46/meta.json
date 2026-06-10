@@ -1,0 +1,37 @@
+{
+  "id": "2026-06-10-12-10-46",
+  "subject": "biology",
+  "chapter": "第四单元 第五章 人体内废物的排出",
+  "knowledge_points": [
+    "肾的结构与功能",
+    "排泄途径"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "9. 下列有关肾结构与功能的叙述错误的是（  ）\nA. 肾是形成尿液的器官  B. 肾的基本单位是肾单位\nC. 血液经过肾单位的滤过作用和重吸收作用形成尿液\nD. 尿素、多余的水和无机盐等只能通过肾形成尿液排出",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T12:10:46.863Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "反向选择题，D中“只能”为错误点，两轮校验通过",
+  "analysis": {
+    "answer": "D",
+    "explanation": "本题选错误项。A、B、C均正确。D中“只能”不对：尿素、多余水和无机盐还可通过皮肤（汗液）和肺（二氧化碳、少量水）排出，并非只能通过肾脏。",
+    "key_concept": "排泄途径",
+    "common_mistakes": [
+      "忽略排汗也是排泄途径",
+      "未注意“只能”等绝对化词语"
+    ],
+    "related_topics": [
+      "循环系统与呼吸系统的协调"
+    ]
+  }
+}

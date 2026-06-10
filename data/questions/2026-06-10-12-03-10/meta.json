@@ -1,0 +1,38 @@
+{
+  "id": "2026-06-10-12-03-10",
+  "subject": "geography",
+  "chapter": "第六章 发展与合作",
+  "knowledge_points": [
+    "航天科技",
+    "太空探索意义"
+  ],
+  "difficulty": "easy",
+  "question_type": "choice",
+  "ocr_text": "7. 我国进行太空探索的意义包括（  ）\n①推动科技创新和技术进步  ②提升综合国力和服务人类  ③开发和利用太空生物资源  ④为太空探索提供科研数据\nA. ①②③  B. ①②④  C. ①③④  D. ②③④",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-10T12:03:10.463Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-10T12:45:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "红笔标注B；排除③，选①②④，两轮校验通过",
+  "analysis": {
+    "answer": "B",
+    "explanation": "嫦娥六号探月属于深空探测，主要意义是推动科技进步、提升综合国力、服务人类、积累科研数据。③“开发和利用太空生物资源”不是当前探月的主要意义，故不选。",
+    "key_concept": "太空探索的意义",
+    "common_mistakes": [
+      "把所有看似合理的选项都选上",
+      "误选③太空生物资源开发"
+    ],
+    "related_topics": [
+      "国际合作",
+      "科技发展"
+    ]
+  }
+}
