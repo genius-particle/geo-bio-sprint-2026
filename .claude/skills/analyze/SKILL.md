@@ -321,13 +321,19 @@ low 不阻止写入，仅标记提示人工复核。
 
 **写入 meta.json 前必须完成**：
 
-1. **引号转义**：所有文本字段（`ocr_text`、`answer`、`explanation`、`common_mistakes` 等）中的 ASCII 双引号 `"` 必须转义为 `\"`，或替换为中文智能引号 `""`（推荐后者，更自然）
-2. **常见易错字符**：
-   - `"人"字形` → `"“人”字形`（中文智能引号）
-   - `"西岸"或"东岸"` → `"“西岸”或“东岸”`
-   - 题目原文中的引号内容一律用中文智能引号 `""` 包裹
-3. **写入后验证**：写入 meta.json 后，**必须读取文件并验证 JSON 有效性**（可用 `node -e "JSON.parse(require('fs').readFileSync('path','utf8'))"` 或 `python3 -c "import json; json.load(open('path'))"` 验证）
-4. **无效处理**：如果 JSON 验证失败，不得标记为 `analyzed`，应修复后重试
+1. **禁止引号字符**：所有文本字段（`ocr_text`、`answer`、`explanation`、`common_mistakes`、`verification_notes` 等）中**禁止出现任何引号字符**：
+   - 禁止 ASCII 双引号 `"`（会截断 JSON 字符串）
+   - 禁止中文弯引号 `""`（部分解析器无法正确处理）
+   - 禁止英文单引号 `''`
+   - 如需引用概念或术语，用书名号 `《》`、括号 `（）`、破折号 `——` 替代，或直接去掉引号
+   - 示例：~~孵化器通风答”空气”而非”氧气”~~ → 孵化器通风答空气而非氧气
+   - 示例：~~课本标准顺序为”分裂、生长、分化”~~ → 课本标准顺序为分裂、生长、分化
+2. **写入后自动验证**：写入 meta.json 后，**必须**运行以下命令验证：
+   ```bash
+   python3 -c "import json,sys; json.load(open(sys.argv[1]))" data/questions/{id}/meta.json
+   ```
+3. **自动修复**：如果验证失败，运行 `server/utils/fix-json.py {id}` 自动移除非法引号字符后重试验证
+4. **禁止跳过**：如果验证仍失败，不得标记为 `analyzed`，应手动排查修复
 
 ## 规则
 

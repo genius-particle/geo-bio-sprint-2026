@@ -49,9 +49,9 @@ export default function MistakeBookView({ onSelectQuestion }: { onSelectQuestion
           {filtered.map((m: any) => m.question && (
             <ListCard
               key={m.question_id}
-              leading={<ProgressRing value={m.review_count} color={m.is_mastered ? '#10B981' : '#E63946'} />}
+              leading={<ProgressRing value={m.review_count ?? 0} color={m.is_mastered ? '#10B981' : '#E63946'} />}
               title={m.question.chapter || '未分类'}
-              meta={`复习 ${m.review_count} 次 · ${m.is_mastered ? '已掌握' : '复习中'}`}
+              meta={`复习 ${m.review_count ?? 0} 次 · ${m.is_mastered ? '已掌握' : '复习中'}`}
               onClick={() => onSelectQuestion(m.question_id)}
             />
           ))}
