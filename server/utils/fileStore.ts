@@ -19,13 +19,13 @@ export function writeJson(filePath: string, data: any): void {
 export function listDirs(dirPath: string): string[] {
   const full = join(DATA_DIR, dirPath);
   if (!existsSync(full)) return [];
-  return readdirSync(full, { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name);
+  return readdirSync(full, { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name).sort().reverse();
 }
 
 export function listFiles(dirPath: string, ext?: string): string[] {
   const full = join(DATA_DIR, dirPath);
   if (!existsSync(full)) return [];
-  return readdirSync(full).filter(f => !ext || f.endsWith(ext));
+  return readdirSync(full).filter(f => !ext || f.endsWith(ext)).sort().reverse();
 }
 
 export function writeImage(filePath: string, buffer: Buffer): void {
