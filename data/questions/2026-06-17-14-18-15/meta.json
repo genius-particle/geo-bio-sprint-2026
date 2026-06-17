@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-17-14-18-15",
+  "subject": "biology",
+  "chapter": "第四单元 第五章 人体内废物的排出",
+  "knowledge_points": [
+    "肾单位结构",
+    "肾小球",
+    "生殖系统"
+  ],
+  "difficulty": "easy",
+  "question_type": "choice",
+  "ocr_text": "3. 如图是某同学绘制的肾单位结构模式图，其中表示肾小球的是（ ）\nA. ①  B. ②  C. ③  D. ④\n（入球小动脉、出球小动脉标注；①肾小球 ②肾小囊 ③肾小管周围毛细血管 ④肾小管）\n4. 在人体生殖系统中，产生精子和卵细胞的器官分别是（ ）",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-17T14:18:15.001Z",
+  "ocr_quality": "full",
+  "analyzed_at": "2026-06-17T15:05:00.000Z",
+  "confidence": "high",
+  "needs_manual_review": false,
+  "verification_notes": "①为肾小球毛细血管球团，②为肾小囊；手写选B与推导不符，以图示为准",
+  "analysis": {
+    "answer": "3.A；4.B（睾丸、卵巢）",
+    "explanation": "肾单位图中，①是肾小球（毛细血管球团），②是肾小囊（杯状结构包裹肾小球），③是肾小管周围毛细血管，④是肾小管。产生精子的是睾丸，产生卵细胞的是卵巢，顺序为睾丸、卵巢。",
+    "key_concept": "肾单位结构与生殖器官",
+    "common_mistakes": [
+      "把肾小囊误认为肾小球",
+      "混淆入球小动脉与肾小球",
+      "精子和卵细胞产生器官顺序颠倒"
+    ],
+    "related_topics": [
+      "排泄途径与肾脏功能",
+      "人体生殖与胚胎发育"
+    ]
+  }
+}
