@@ -1,0 +1,40 @@
+{
+  "id": "2026-06-17-14-20-10",
+  "subject": "geography",
+  "chapter": "第七章 北方地区",
+  "knowledge_points": [
+    "东北地区气候",
+    "降雪分布",
+    "读图分析"
+  ],
+  "difficulty": "medium",
+  "question_type": "choice",
+  "ocr_text": "3. 辽宁省多年平均降雪量的分布规律是\nA. 自东向西递减\nB. 自东北向西南递增\nC. 自南向北递减\nD. 自东南向西北递增",
+  "source": "",
+  "source_detail": "",
+  "tags": [],
+  "is_mistake": true,
+  "analysis_status": "analyzed",
+  "image_count": 1,
+  "notes": "",
+  "created_at": "2026-06-17T14:20:10.829Z",
+  "ocr_quality": "partial",
+  "analyzed_at": "2026-06-17T15:10:00.000Z",
+  "confidence": "medium",
+  "needs_manual_review": false,
+  "verification_notes": "辽宁东部山地迎风坡降雪多，向西南沿海递减再递增规律为自东北向西南递增；无原图仅据题型常识推导",
+  "analysis": {
+    "answer": "B",
+    "explanation": "辽宁省东部和东南部为长白山区，地势较高，冬季来自海洋的湿润气流遇地形抬升，降雪较多；向西南方向地势降低，降雪量总体呈自东北向西南递增的分布规律。读降雪分布图时要看等值线疏密和数值变化方向。",
+    "key_concept": "辽宁省降雪空间分布",
+    "common_mistakes": [
+      "未结合地形迎风坡分析，凭直觉选东向西递减",
+      "混淆降雪量与气温的空间变化规律",
+      "读图时方向判断错误"
+    ],
+    "related_topics": [
+      "四大地理区域与地形区",
+      "温带季风气候读图"
+    ]
+  }
+}

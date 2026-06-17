@@ -73,11 +73,11 @@ description: 当用户说「出题」「生成练习」「出几道类似的题�
 
 ### 第四步：组装 Session 并写入
 
-生成 PracticeSession JSON 写入 `data/practice/{id}.json`：
+生成 PracticeSession JSON 写入 `data/practice/{id}.json`。`{id}` 格式固定为 `{YYYY-MM-DD}-{subject}-{mode}`（如 `2026-06-09-biology-knowledge`）。**文件名（去 `.json`）与 JSON 内 `id` 字段必须完全相同**——前端保存时用 `id` 字段定位文件，二者不一致会导致保存接口 404、做题进度静默丢失。
 
 ```json
 {
-  "id": "2026-06-09-10-30-00",
+  "id": "2026-06-09-biology-knowledge",
   "title": "传染源与病原体 - 快问快答",
   "mode": "knowledge",
   "subject": "biology",
@@ -108,6 +108,7 @@ description: 当用户说「出题」「生成练习」「出几道类似的题�
 ```
 
 **关键**：
+- 🚨 **`id` 字段必须与文件名（去 `.json`）完全相同**（文件 `2026-06-09-biology-knowledge.json` ↔ `id: "2026-06-09-biology-knowledge"`），否则保存会 404、进度静默丢失
 - `mode` 固定为 `"knowledge"`
 - `question_type` 为 `"choice"` 或 `"judge"`
 - `practice_status` 初始为 `"unattempted"`
@@ -178,3 +179,18 @@ with open('文件路径') as f:
 如果解析失败，用以下状态机修复：将文件内容中所有 ASCII `"` 恢复，然后用字符级状态机逐个判断——在 JSON 字符串内部遇到 `"` 时，跳过空白看后续字符是否为 `,}]:` （是→JSON 闭合引号；否→中文引号，用 `"``"` 交替替换）。
 
 **禁止跳过此步骤。**
+
+### id 一致性校验（保存功能的命脉）
+
+写入后**必须立即**断言文件名与内容 `id` 字段一致，否则前端保存会 404、进度静默丢失：
+
+```python
+import os, json
+path = 'data/practice/实际文件名.json'
+with open(path) as f:
+    data = json.load(f)
+stem = os.path.splitext(os.path.basename(path))[0]
+assert data['id'] == stem, f'id 不一致：文件名 {stem} ≠ id {data["id"]}，会导致保存 404'
+```
+
+断言失败时，**必须**把 `data['id']` 改为与文件名一致后重写文件，再重新验证（不可反向改文件名去迁就 id，因为前端已用旧 id 缓存）。
