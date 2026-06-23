@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { fetchQuestion } from '../services/api';
-import type { Question } from '../types';
+import { fetchQuestion, fetchMistakes, updateMistake } from '../services/api';
+import type { Question, MistakeRecord } from '../types';
 import { QUESTION_TYPE_LABELS, DIFFICULTY_LABELS } from '../types';
 import { PageContainer, BackLink, PageHeader, StatusBadge, SubjectLabel, SectionLabel, ParseBlock } from './Common';
 
@@ -8,10 +8,17 @@ export default function QuestionDetailView({ questionId, onBack }: {
   questionId: string; onBack: () => void;
 }) {
   const [q, setQ] = useState<Question | null>(null);
+  // 该题的错题记录（若存在），用于显示与切换"攻克中/已掌握"掌握状态
+  const [mistake, setMistake] = useState<MistakeRecord | null>(null);
+  const [toggling, setToggling] = useState(false);
   // fullscreen overlay for image zoom
   const [zoomIdx, setZoomIdx] = useState<number | null>(null);
 
-  useEffect(() => { fetchQuestion(questionId).then(setQ); }, [questionId]);
+  useEffect(() => {
+    fetchQuestion(questionId).then(setQ);
+    // 取该题的错题记录（非错题则 mistake 为 null，不显示掌握状态卡片）
+    fetchMistakes().then((ms: MistakeRecord[]) => setMistake(ms.find(m => m.question_id === questionId) ?? null));
+  }, [questionId]);
 
   // 全屏查看时禁止背景滚动
   useEffect(() => {
@@ -20,6 +27,21 @@ export default function QuestionDetailView({ questionId, onBack }: {
       return () => { document.body.style.overflow = ''; };
     }
   }, [zoomIdx]);
+
+  // 手动切换掌握状态：攻克中 ↔ 已掌握（乐观更新，失败回滚）
+  const toggleMastered = async () => {
+    if (!mistake || toggling) return;
+    const next = !mistake.is_mastered;
+    setMistake({ ...mistake, is_mastered: next });
+    setToggling(true);
+    try {
+      await updateMistake(mistake.question_id, { is_mastered: next });
+    } catch {
+      setMistake({ ...mistake, is_mastered: !next });
+    } finally {
+      setToggling(false);
+    }
+  };
 
   if (!q) return <div className="flex items-center justify-center h-full text-muted font-light">加载中…</div>;
 
@@ -108,6 +130,33 @@ export default function QuestionDetailView({ questionId, onBack }: {
           )}
         </div>
       </div>
+
+      {/* 掌握状态：仅错题显示。手动切换 攻克中 ↔ 已掌握 */}
+      {mistake && (
+        <div className="mt-8 rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-4 md:p-5">
+          <div className="flex items-center justify-between gap-3 flex-wrap">
+            <div>
+              <SectionLabel>掌握状态</SectionLabel>
+              <div className="flex items-center gap-2 mt-1">
+                <StatusBadge variant={mistake.is_mastered ? 'ok' : 'err'}>
+                  {mistake.is_mastered ? '已掌握' : '攻克中'}
+                </StatusBadge>
+                <span className="text-xs text-[#94A3B8]">已复习 {mistake.review_count ?? 0} 次</span>
+              </div>
+            </div>
+            <button
+              onClick={toggleMastered}
+              disabled={toggling}
+              className={`shrink-0 px-4 py-2.5 rounded-xl text-sm font-bold text-white active:translate-y-0.5 transition-transform disabled:opacity-50 ${
+                mistake.is_mastered ? 'bg-[#E63946]' : 'bg-[#58CC02]'
+              }`}
+              style={{ boxShadow: mistake.is_mastered ? '0 3px 0 #B5283A' : '0 3px 0 #46A302' }}
+            >
+              {mistake.is_mastered ? '重新加入攻克' : '标记为已掌握'}
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* 全屏查看大图 */}
       {zoomIdx !== null && (
