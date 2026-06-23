@@ -149,6 +149,8 @@ export default function App() {
   const [croppingImage, setCroppingImage] = useState<string | null>(null);
   const [croppedImages, setCroppedImages] = useState<string[]>([]);
   const [selectedQuestionId, setSelectedQuestionId] = useState<string | null>(null);
+  // 详情页来源视图（从哪个 Tab 点进来的），供详情页"返回"回到来源，而非依赖浏览器后退
+  const [detailFromView, setDetailFromView] = useState<ViewMode>('home');
   const [refreshKey, setRefreshKey] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -179,8 +181,19 @@ export default function App() {
 
     const handlePopState = (e: PopStateEvent) => {
       const newView = e.state?.view as ViewMode | undefined;
+      // 历史栈耗尽或 state 丢失（Pad Safari 已知问题）：子视图（详情/拍照）系统后退时
+      // 回到首页，避免退出到浏览器空白页；顶层 Tab 视图则允许正常退出应用。
+      if (!newView) {
+        if (viewRef.current === 'detail' || viewRef.current === 'capture') {
+          history.pushState({ view: 'home' }, '');
+          setView('home');
+          setSelectedQuestionId(null);
+          setCroppedImages([]); setCroppingImage(null);
+        }
+        return;
+      }
       // 忽略无效 popstate（iOS 文件选择器产生的幽灵条目）
-      if (!newView || newView === viewRef.current) return;
+      if (newView === viewRef.current) return;
       setView(newView);
       if (newView !== 'detail') setSelectedQuestionId(null);
       if (newView !== 'capture') { setCroppedImages([]); setCroppingImage(null); }
@@ -222,12 +235,18 @@ export default function App() {
   };
 
   const openQuestion = (id: string) => {
+    setDetailFromView(viewRef.current); // 记录来源（错题本 / 首页），供详情页返回使用
     setSelectedQuestionId(id);
     navigate('detail', true);
   };
 
   const tabViews: ViewMode[] = ['home', 'mistakes', 'knowledge', 'practice'];
   const showTabBar = tabViews.includes(view);
+  // 桌面端侧边栏：除拍照流程外都显示。详情页也保留侧边栏（像其他页面一样嵌在主区域），
+  // 不再全屏"pop 成独立页面"。SideNav 自身 hidden md:flex，移动端不显示。
+  const showSideNav = view !== 'capture';
+  // 详情页不在 tabViews 里，让其来源 Tab 高亮，表明"从哪进来"
+  const sideNavActive: ViewMode = tabViews.includes(view) ? view : detailFromView;
 
   const triggerCapture = () => fileInputRef.current?.click();
 
@@ -239,15 +258,15 @@ export default function App() {
         <ImageCropper imageSrc={croppingImage} onConfirm={handleCropConfirm} onCancel={() => setCroppingImage(null)} />
       )}
 
-      {showTabBar && (
-        <SideNav active={view} onChange={navigate} onCapture={triggerCapture} />
+      {showSideNav && (
+        <SideNav active={sideNavActive} onChange={navigate} onCapture={triggerCapture} />
       )}
 
       <div className="flex-1 flex flex-col min-w-0 min-h-0">
         <div className="flex-1 overflow-auto flex flex-col min-h-0">
           {view === 'home' && <DashboardView onCapture={triggerCapture} onSelectQuestion={openQuestion} refreshKey={refreshKey} />}
           {view === 'capture' && croppedImages.length > 0 && <QuestionCaptureView imageBase64List={croppedImages} onAddImage={triggerCapture} onRemoveImage={handleRemoveImage} onSave={handleSave} onCancel={() => navigate('home')} />}
-          {view === 'detail' && selectedQuestionId && <QuestionDetailView questionId={selectedQuestionId} onBack={() => history.back()} />}
+          {view === 'detail' && selectedQuestionId && <QuestionDetailView questionId={selectedQuestionId} onBack={() => navigate(detailFromView)} />}
           {view === 'mistakes' && <MistakeBookView onSelectQuestion={openQuestion} />}
           {view === 'knowledge' && <KnowledgeBaseView />}
           {view === 'practice' && <PracticeView />}
